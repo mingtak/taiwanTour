@@ -17,3 +17,5 @@ parts/
 dist/
 var/
 config.py
+resources/
+static/
