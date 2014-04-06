@@ -34,12 +34,12 @@ class SpecialView(Container):
     grok.implements(ISpecialView)
 
 
-class SampleView(grok.View):
+class HomePageView(grok.View):
     """ sample view class """
 
     grok.context(ISpecialView)
     grok.require('zope2.View')
-    grok.name('view1')
+    grok.name('homePageView')
 
 
 class SampleView2(grok.View):

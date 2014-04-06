@@ -26,10 +26,10 @@
 
   <!-- View information -->
   <property name="link_target"></property>
-  <property name="immediate_view">view1</property>
-  <property name="default_view">view1</property>
+  <property name="immediate_view">homePageView</property>
+  <property name="default_view">homePageView</property>
   <property name="view_methods">
-   <element value="view1"/>
+   <element value="homePageView"/>
    <element value="view2"/>
   </property>
   <property name="default_view_fallback">False</property>

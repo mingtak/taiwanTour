@@ -1,0 +1,68 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="twtour.content">
+<body>
+
+
+<metal:main fill-slot="content-core">
+
+
+<!-- Event Section Begin-->
+        <section class="whitewrapper greybg jt-shadow bordertop clearfix" id="plone-section1">
+        	<div class="container">
+            	<div class="row">
+        			<div class="title text-center">
+                        <h2 i18n:translate="">UPCOMING EVENT</h2>
+                        <hr>
+<!--
+                        <p class="lead">Mirum est notare quam littera gothica, quam nunc putamus parum claram</p>
+-->
+                    </div>
+<tal:upcomingEvents define="catalog python:context.portal_catalog;
+                            brain python:catalog(portal_type='Event')[:4]"
+                    repeat="item brain">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    	<div class="testimonial_wrap" tal:define="oddOrEven repeat/item/number">
+                            <div class="testimonial_details" tal:attributes="data-effect python:'slide-left' if oddOrEven%2 == 1 else 'slide-right'">
+                            	<img class="img-circle alignleft" src="demos/01_team.png" alt=""
+                                     tal:attributes="src python:'%s/@@download/headImage/%s' % (item.getObject().absolute_url(),
+                                                                                                item.getObject().headImage.filename)">
+                           		<p tal:content='item/Description'>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam.</p>
+                                <div class="testimonial_meta clearfix">
+                                    <div class="pull-left">
+                                        <p><span>Jenny Doe</span> - Web Designer</p>
+                                    </div>	
+                                    <div class="pull-right">
+                                        <div class="rating text-center">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </div><!-- rating -->
+                                    </div>	        
+                                </div><!-- testimonial_desc -->                 
+                            </div><!-- end testimonial_meta -->
+                        </div><!-- end testimonial_wrap -->
+                    </div><!-- end col-lg-6 -->
+</tal:upcomingEvents>                    
+                    
+		</div><!-- end row -->
+            </div><!-- end container -->
+        </section><!-- end whitewrapper --> 
+
+
+<!-- Event Section End -->
+
+
+
+
+</metal:main>
+
+</body>
+</html>
+
