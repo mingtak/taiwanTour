@@ -8,6 +8,7 @@
   -->
 <object name="portal_types" meta_type="Plone Types Tool">
   <!-- -*- extra stuff goes here -*- -->
+  <object name="twtour.content.specialslider" meta_type="Dexterity FTI" />
   <object name="twtour.content.city" meta_type="Dexterity FTI" />
   <object name="twtour.content.specialview" meta_type="Dexterity FTI" />
   <object name="twtour.content.attractions" meta_type="Dexterity FTI" />

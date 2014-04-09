@@ -10,6 +10,315 @@
 
 <metal:main fill-slot="content-core">
 
+<!-- Top Slide Begin -->
+        <section class="sliderwrapper clearfix" id="plone-home-slide">
+            <div class="tp-banner-container">
+                <div class="tp-banner" >
+                    <ul tal:define="catalog python:context.portal_catalog;
+                                    item python:catalog(portal_type='twtour.content.specialslider')[0]">
+                       <li data-transition="fade" data-slotamount="7" data-masterspeed="1500" >
+                            <!-- MAIN IMAGE -->
+                            <img tal:attributes="src python:'%s/@@download/slideImage1/%s' % (item.getObject().absolute_url(),
+                                                                                              item.getObject().slideImage1.filename)"
+                                 alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                            
+                            <!-- LAYER NR. 3 -->
+                            <div class="tp-caption new_title skewfromleft customout"
+                                data-x="center" data-hoffset="0"
+                                data-y="230"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="800"
+                                data-start="1500"
+                                data-easing="Power4.easeOut"
+                                data-endspeed="300"
+                                data-endeasing="Power1.easeIn"
+                                data-captionhidden="on"
+                                style="z-index: 6" tal:content="structure python:item.getObject().slideImage1Slogan">Welcome to Taiwan-Tour.tw</div>
+        
+                            <!-- LAYER NR. 4 -->
+                            <div class="tp-caption big_title skewfromright customout"
+                                data-x="center" data-hoffset="0"
+                                data-y="290"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="800"
+                                data-start="1700"
+                                data-easing="Power4.easeOut"
+                                data-endspeed="300"
+                                data-endeasing="Power1.easeIn"
+                                data-captionhidden="on"
+                                style="z-index: 7" tal:content="structure python:item.getObject().slideImage1Description">Invites you to visit, discover the beauty of Taiwan</div>
+                            
+                            <!-- LAYER NR. 6 -->
+
+                            <div class="tp-caption skewfromright customout"
+                                data-x="center" data-hoffset="70"
+                                data-y="365"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="800"
+                                data-start="2100"
+                                data-easing="Power4.easeOut"
+                                data-endspeed="300"
+                                data-endeasing="Power1.easeIn"
+                                data-captionhidden="on"
+				style="z-index: 6">
+                            </div> 
+                            
+                            <!-- LAYER NR. 6 -->
+                            <div class="tp-caption skewfromleft customout"
+                                data-x="center" data-hoffset="-70"
+                                data-y="365"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="800"
+                                data-start="2300"
+                                data-easing="Power4.easeOut"
+                                data-endspeed="300"
+                                data-endeasing="Power1.easeIn"
+                                data-captionhidden="on"
+				style="z-index: 6">
+                            </div> 
+
+                        </li>
+                   		<!-- SLIDE  -->
+                        <li data-transition="fade" data-slotamount="7" data-masterspeed="1500" >
+                            <!-- MAIN IMAGE -->
+                            <img tal:attributes="src python:'%s/@@download/slideImage2/%s' % (item.getObject().absolute_url(),
+                                                                                              item.getObject().slideImage2.filename)"
+                                 alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                            <!-- LAYERS -->
+        
+                            <!-- LAYER NR. 2 -->
+                            <div class="tp-caption customin customout"
+                                data-x="center" data-hoffset="-10"
+                                data-y="top" data-voffset="130"
+                                data-customin="x:50;y:150;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.5;scaleY:0.5;skewX:0;skewY:0;opacity:0;transformPerspective:0;transformOrigin:50% 50%;"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="800"
+                                data-start="700"
+                                data-easing="Power4.easeOut"
+                                data-endspeed="500"
+                                data-endeasing="Power4.easeIn"
+                                style="z-index: 3"><img tal:attributes="src python:'%s/@@download/slideImage2Small/%s' % (item.getObject().absolute_url(),
+                                                                                              item.getObject().slideImage2Small.filename)"
+                                                    alt="">
+                            </div>
+                            
+                            <!-- LAYER NR. 3 -->
+                            <div class="tp-caption pacifico1 skewfromleft customout"
+                                data-x="center" data-hoffset="0"
+                                data-y="310"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="800"
+                                data-start="1500"
+                                data-easing="Power4.easeOut"
+                                data-endspeed="300"
+                                data-endeasing="Power1.easeIn"
+                                data-captionhidden="on"
+                                style="z-index: 6" tal:content="structure python:item.getObject().slideImage2Slogan">We Are The Best</div>
+        
+                            <!-- LAYER NR. 4 -->
+                            <div class="tp-caption nothing1 skewfromright customout"
+                                data-x="center" data-hoffset="0"
+                                data-y="365"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="800"
+                                data-start="1700"
+                                data-easing="Power4.easeOut"
+                                data-endspeed="300"
+                                data-endeasing="Power1.easeIn"
+                                data-captionhidden="on"
+                                style="z-index: 7" tal:content="structure python:item.getObject().slideImage2Description">We do our best for you.</div>
+                        </li>
+                    	<!-- SLIDE  -->
+                        <li data-transition="fade" data-slotamount="7" data-masterspeed="1500" >
+                            <!-- MAIN IMAGE -->
+                            <img tal:attributes="src python:'%s/@@download/slideImage3/%s' % (item.getObject().absolute_url(),
+                                                                                              item.getObject().slideImage3.filename)"
+                                 alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                            <!-- LAYERS -->
+                            
+                            <!-- LAYER NR. 2 -->
+                            <div class="tp-caption customin customout"
+                                data-x="left" data-hoffset="0"
+                                data-y="center" data-voffset="0"
+                                data-customin="x:50;y:150;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.5;scaleY:0.5;skewX:0;skewY:0;opacity:0;transformPerspective:0;transformOrigin:50% 50%;"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="800"
+                                data-start="700"
+                                data-easing="Power4.easeOut"
+                                data-endspeed="500"
+                                data-endeasing="Power4.easeIn"
+                                style="z-index: 3"><img tal:attributes="src python:'%s/@@download/slideImage3Small/%s' % (item.getObject().absolute_url(),
+                                                                                                                     item.getObject().slideImage3Small.filename)"
+                                alt="">
+                            </div>
+                            
+                            <!-- LAYER NR. 3 -->
+                            <div class="tp-caption new_title skewfromleft customout"
+                                data-x="center" data-hoffset="259"
+                                data-y="200"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="800"
+                                data-start="1500"
+                                data-easing="Power4.easeOut"
+                                data-endspeed="300"
+                                data-endeasing="Power1.easeIn"
+                                data-captionhidden="on"
+                                style="z-index: 6" tal:content="structure python:item.getObject().slideImage3Slogan">Taiwan is Good!</div>
+        
+                            <!-- LAYER NR. 4 -->
+                            <div class="tp-caption big_title skewfromright customout"
+                                data-x="center" data-hoffset="188"
+                                data-y="250"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="800"
+                                data-start="1700"
+                                data-easing="Power4.easeOut"
+                                data-endspeed="300"
+                                data-endeasing="Power1.easeIn"
+                                data-captionhidden="on"
+                                style="z-index: 7" tal:content="structure python:item.getObject().slideImage3Description1">Good Job.</div>
+                            
+                            <!-- LAYER NR. 5 -->
+                            <div class="tp-caption minidesc skewfromleft customout"
+                                data-x="center" data-hoffset="260"
+                                data-y="295"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="800"
+                                data-start="1900"
+                                data-easing="Power4.easeOut"
+                                data-endspeed="300"
+                                data-endeasing="Power1.easeIn"
+                                data-captionhidden="on"
+				style="z-index: 6"><p tal:content="structure python:item.getObject().slideImage3Description2">This is the best web site to intro Taiwan </p>
+                            </div> 
+                            
+                            <!-- LAYER NR. 6 -->
+                            <div class="tp-caption skewfromright customout"
+                                data-x="center" data-hoffset="170"
+                                data-y="365"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="800"
+                                data-start="2100"
+                                data-easing="Power4.easeOut"
+                                data-endspeed="300"
+                                data-endeasing="Power1.easeIn"
+                                data-captionhidden="on"
+				style="z-index: 6"></div> 
+                            
+                            <!-- LAYER NR. 6 -->
+                            <div class="tp-caption skewfromleft customout"
+                                data-x="center" data-hoffset="38"
+                                data-y="365"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="800"
+                                data-start="2300"
+                                data-easing="Power4.easeOut"
+                                data-endspeed="300"
+                                data-endeasing="Power1.easeIn"
+                                data-captionhidden="on"
+				style="z-index: 6"></div> 
+                        </li>
+                    	<!-- SLIDE  -->
+                        <li data-transition="fade" data-slotamount="7" data-masterspeed="1500" >
+                            <!-- MAIN IMAGE -->
+                            <img tal:attributes="src python:'%s/@@download/slideImage4/%s' % (item.getObject().absolute_url(),
+                                                                                              item.getObject().slideImage4.filename)"
+                                 alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                            <!-- LAYERS -->
+        
+                            <!-- LAYER NR. 2 -->
+                            <div class="tp-caption customin customout"
+                                data-x="right" data-hoffset="0"
+                                data-y="center" data-voffset="0"
+                                data-customin="x:50;y:150;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.5;scaleY:0.5;skewX:0;skewY:0;opacity:0;transformPerspective:0;transformOrigin:50% 50%;"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="800"
+                                data-start="700"
+                                data-easing="Power4.easeOut"
+                                data-endspeed="500"
+                                data-endeasing="Power4.easeIn"
+                                style="z-index: 3"><img tal:attributes="src python:'%s/@@download/slideImage4Small/%s' % (item.getObject().absolute_url(),
+                                                                                                                     item.getObject().slideImage4Small.filename)"
+                                alt="">
+                            </div>
+                            
+                            <!-- LAYER NR. 3 -->
+                            <div class="tp-caption new_title skewfromleft customout"
+                                data-x="left" data-hoffset="80"
+                                data-y="200"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="800"
+                                data-start="1500"
+                                data-easing="Power4.easeOut"
+                                data-endspeed="300"
+                                data-endeasing="Power1.easeIn"
+                                data-captionhidden="on"
+                                style="z-index: 6" tal:content="structure python:item.getObject().slideImage4Slogan">Good Good Good</div>
+        
+                            <!-- LAYER NR. 4 -->
+                            <div class="tp-caption big_title skewfromright customout"
+                                data-x="left" data-hoffset="80"
+                                data-y="250"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="800"
+                                data-start="1700"
+                                data-easing="Power4.easeOut"
+                                data-endspeed="300"
+                                data-endeasing="Power1.easeIn"
+                                data-captionhidden="on"
+                                style="z-index: 7" tal:content="structure python:item.getObject().slideImage4Description1">Nice web site</div>
+                            
+                            <!-- LAYER NR. 5 -->
+                            <div class="tp-caption minidesc skewfromleft customout"
+                                data-x="left" data-hoffset="82"
+                                data-y="295"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="800"
+                                data-start="1900"
+                                data-easing="Power4.easeOut"
+                                data-endspeed="300"
+                                data-endeasing="Power1.easeIn"
+                                data-captionhidden="on"
+				style="z-index: 6"><p tal:content="structure python:item.getObject().slideImage4Description2">Fusce at ornare massa. Donec et vehicula nunc. Nulla ut venenat gula. Vestibulum hendrerit diam nunc,<br> 
+in tempus urna rhoncus faucibus. Vestibulum hendrerit diam nunc, in tempus urna rhoncus faucibus. </p>
+                            </div> 
+                            
+                            <!-- LAYER NR. 6 -->
+                            <div class="tp-caption skewfromleft customout"
+                                data-x="left" data-hoffset="90"
+                                data-y="365"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="800"
+                                data-start="2100"
+                                data-easing="Power4.easeOut"
+                                data-endspeed="300"
+                                data-endeasing="Power1.easeIn"
+                                data-captionhidden="on"
+								style="z-index: 6"></div> 
+                            
+                            <!-- LAYER NR. 6 -->
+                            <div class="tp-caption skewfromright customout"
+                                data-x="left" data-hoffset="210"
+                                data-y="365"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="800"
+                                data-start="2300"
+                                data-easing="Power4.easeOut"
+                                data-endspeed="300"
+                                data-endeasing="Power1.easeIn"
+                                data-captionhidden="on"
+				style="z-index: 6"></div> 
+                        </li>
+                    </ul>
+                    <div class="tp-bannertimer"></div>
+                </div>
+			</div>       
+        </section>
+
+
+
+<!-- Top Slide End -->
+
 
 <!-- Event Section Begin-->
         <section class="whitewrapper greybg jt-shadow bordertop clearfix" id="plone-section1">
@@ -34,15 +343,11 @@
                            		<p tal:content='item/Description'>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam.</p>
                                 <div class="testimonial_meta clearfix">
                                     <div class="pull-left">
-                                        <p><span>Jenny Doe</span> - Web Designer</p>
+                                        <p tal:content="python:'%s - %s' % (str(item.start).split()[0], str(item.end).split()[0])">date region</p>
                                     </div>	
                                     <div class="pull-right">
                                         <div class="rating text-center">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
+                                          <a tal:attributes="href python:item.getObject().absolute_url()">...more</a>
                                         </div><!-- rating -->
                                     </div>	        
                                 </div><!-- testimonial_desc -->                 
@@ -57,6 +362,126 @@
 
 
 <!-- Event Section End -->
+
+<!-- News Item Section Begin -->
+
+<section class="whitewrapper bordertop clearfix" id="plone-section2">
+        	<div class="container">
+            	<div class="row">        
+                  <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12" data-effect="slide-left">
+                    <div class="title1">
+                      <h2 i18n:translate="">News</h2>
+                      <hr>
+<!--
+                      <p class="lead">Mirum est notare quam littera gothica, quam nunc putamus parum claram</p>
+-->
+                    </div>
+                    <div class="clearfix">
+                    </div>
+
+                  <!-- news item list -->        
+                  <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <tal:newsItemList define="catalog python:context.portal_catalog;
+                                                brain python:catalog(portal_type='News Item')[:5]">
+                        <ul class="recent_posts_widget">
+                          <li tal:repeat="item brain">
+                            <a tal:attributes="href item/getURL">
+                            <img tal:attributes="src python:'%s/@@download/image/%s' % (item.getObject().absolute_url(),
+                                                                                        item.getObject().image.filename);
+                                                 title item/Description;
+                                                 alt item/Title">
+                            <strong tal:content="item/Title"></strong>
+                            </a><br/>
+                            <span tal:content="item/Description"></span>
+                          </li>
+                        </ul>
+                      </tal:newsItemList>
+                    </div>
+                  </div><!-- end row -->   
+                </div><!-- end col-lg-6 -->
+
+                <!-- google ad -->
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                  <img width="336px" alt="" src="http://www.taiwan-tour.tw/++theme++twtour.theme/demos/08_about.png" data-effect="slide-right" style="transition: all 0.7s ease-in-out 0s;">
+                  <p></p>
+                  <img width="336px" alt="" src="http://www.taiwan-tour.tw/++theme++twtour.theme/demos/08_about.png" data-effect="slide-right" style="transition: all 0.7s ease-in-out 0s;">
+                </div><!-- end col-lg-6 -->
+              </div><!-- end row -->
+            </div><!-- end container -->
+</section>
+
+
+<!-- News Item Section End -->
+
+
+<!-- attractions Begin -->    
+        <section class="whitewrapper greybg nopadding clearfix" id="plone-section3">
+        	<div class="container">
+            	<div class="row">
+        			<div class="title text-center">
+                        <h2 i18n:translate="">Attractions</h2>
+                        <hr>
+<!--
+                        <p class="lead">Showcase your  work with colorfull hover effect and seperate your works in categories</p>
+-->
+                    </div>
+
+                    <div class="text-center clearfix">
+                        <nav class="portfolio-filter">
+                            <ul>
+                                <li><a class="red" href="#" data-filter="*" i18n:translate=""> All</a></li>
+                                <li><a class="orange" href="#" data-filter=".Northern" i18n:translate="">Northern</a></li>
+                                <li><a class="yellow" href="#" data-filter=".Central" i18n:translate="">Central</a></li>
+                                <li><a class="blue" href="#" data-filter=".Southern" i18n:translate="">Southern</a></li>
+                                <li><a class="purple" href="#" data-filter=".Eastern" i18n:translate="">Eastern</a></li>
+                                <li><a class="grey" href="#" data-filter=".OutlyingIslands" i18n:translate="">OutlyingIslands</a></li>
+                            </ul>
+                        </nav>
+                    </div><!-- end text-center -->
+                </div><!-- end row -->
+            </div><!-- end container -->
+
+            <div class="masonry_wrapper clearfix">
+<tal:attractionsList define="catalog python:context.portal_catalog;
+                             brain python:catalog(portal_type='twtour.content.attractions', sort_on='UID')[:20];
+                             tempVar python:modules['random'].shuffle(brain)"
+                     repeat="item brain">
+                <div tal:attributes="class python:'item item-h2 item-w1 %s' % item.getObject().cityName.to_object.region">
+                    <div class="media_element ImageWrapper boxes_img">
+                        <a tal:attributes="href python:item.getObject().absolute_url()">
+                          <img tal:attributes="src python:'%s/@@download/headImage/%s' % (item.getObject().absolute_url(),
+                                                                                          item.getObject().headImage.filename)">
+                        </a>
+<tal:getRegion define="region python:str(item.getObject().cityName.to_object.region);
+                       color python:'orange' if region == 'Northern' else 'yellow' if region == 'Central' else 'blue' if region == 'Southern' else 'purple' if region == 'Eastern' else 'gery'">
+                        <a tal:attributes="href python:item.getObject().absolute_url()">
+                          <div tal:attributes="class string:ImageOverlayH ${color}"></div>
+                        </a>
+</tal:getRegion>
+                        <div class="Buttons StyleSc">
+<!--                            <span class="WhiteRounded">
+                              <a data-placement="bottom" data-toggle="tooltip" data-original-title="View details" title=""
+                                 tal:attributes="href python:item.getObject().absolute_url()"><i class="fa fa-link"></i>
+                              </a>
+                            </span>
+-->
+                        </div> <!-- Buttons -->
+                        <div class="StyleBe">
+                          <h5 tal:content="python:'%s : %s' % (item.getObject().cityName.to_object.Title(), item.Title)"
+                              style="color:#fff;">title</h5>
+                        </div>
+                    </div><!-- media_element -->
+                </div>
+</tal:attractionsList>
+            </div>
+</section>
+<!-- attractions End -->
+
+
+
+
+
 
 
 

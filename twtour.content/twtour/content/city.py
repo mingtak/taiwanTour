@@ -26,7 +26,7 @@ regionList = SimpleVocabulary(
      SimpleTerm(value=u'Central', title=_(u'Central')),
      SimpleTerm(value=u'Southern', title=_(u'Southern')),
      SimpleTerm(value=u'Eastern', title=_(u'Eastern')),
-     SimpleTerm(value=u'Outlying Islands', title=_(u'OutlyingIslands')),]
+     SimpleTerm(value=u'OutlyingIslands', title=_(u'OutlyingIslands')),]
     )
 
 

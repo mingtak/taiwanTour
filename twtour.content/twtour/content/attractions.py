@@ -39,8 +39,8 @@ class IAttractions(form.Schema, IImageScaleTraversable):
     )
 
     contact = RichText(
-        title=_(u'contact infomation'),
-        required=False,
+        title=_(u'contact information'),
+        required=True,
     )
 
     webSiteUrl = schema.URI(
@@ -50,7 +50,7 @@ class IAttractions(form.Schema, IImageScaleTraversable):
 
     introduction = RichText(
         title=_(u'Introduction'),
-        required=False,
+        required=True,
     )
 
     location = schema.TextLine(
@@ -60,6 +60,11 @@ class IAttractions(form.Schema, IImageScaleTraversable):
 
     address = schema.TextLine(
         title=_(u'Address'),
+        required=False,
+    )
+
+    transportation = RichText(
+        title=_(u'Transportation'),
         required=False,
     )
 
@@ -85,6 +90,11 @@ class IAttractions(form.Schema, IImageScaleTraversable):
 
     image4 = NamedBlobImage(
         title=_(u'Image4'),
+        required=False,
+    )
+
+    image5 = NamedBlobImage(
+        title=_(u'Image5'),
         required=False,
     )
 
@@ -121,6 +131,6 @@ class SampleView(grok.View):
     grok.context(IAttractions)
     grok.require('zope2.View')
 
-    # grok.name('view')
+    grok.name('view')
 
     # Add view methods here

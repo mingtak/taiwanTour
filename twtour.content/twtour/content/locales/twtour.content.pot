@@ -1,0 +1,139 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2014-04-06 15:56+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: twtour.content\n"
+
+#: ./attractions.py:62
+msgid "Address"
+msgstr ""
+
+#: ./profiles/default/types/twtour.content.attractions.xml
+msgid "Attractions"
+msgstr ""
+
+#: ./profiles/default/types/twtour.content.attractions.xml
+msgid "Attractions for taiwan tour"
+msgstr ""
+
+#: ./city.py:26
+msgid "Central"
+msgstr ""
+
+#: ./profiles/default/types/twtour.content.city.xml
+msgid "Cities Infomation"
+msgstr ""
+
+#: ./profiles/default/types/twtour.content.city.xml
+msgid "City"
+msgstr ""
+
+#: ./attractions.py:35
+msgid "City Name"
+msgstr ""
+
+#: ./city.py:28
+msgid "Eastern"
+msgstr ""
+
+#: ./attractions.py:93
+msgid "If image copyright OK, please checked the box"
+msgstr ""
+
+#: ./attractions.py:109
+msgid "Image height over 500px"
+msgstr ""
+
+#: ./attractions.py:111
+msgid "Image size over 512KB"
+msgstr ""
+
+#: ./attractions.py:107
+msgid "Image width over 500px"
+msgstr ""
+
+#: ./attractions.py:72
+msgid "Image1"
+msgstr ""
+
+#: ./attractions.py:77
+msgid "Image2"
+msgstr ""
+
+#: ./attractions.py:82
+msgid "Image3"
+msgstr ""
+
+#: ./attractions.py:87
+msgid "Image4"
+msgstr ""
+
+#: ./attractions.py:52
+msgid "Introduction"
+msgstr ""
+
+#: ./attractions.py:57
+msgid "Location"
+msgstr ""
+
+#: ./city.py:25
+msgid "Northern"
+msgstr ""
+
+#: ./city.py:29
+msgid "OutlyingIslands"
+msgstr ""
+
+#: ./city.py:38
+msgid "Region"
+msgstr ""
+
+#: ./city.py:27
+msgid "Southern"
+msgstr ""
+
+#: ./profiles/default/types/twtour.content.specialview.xml
+msgid "Special View"
+msgstr ""
+
+#: ./profiles/default/types/twtour.content.specialview.xml
+msgid "SpecialView"
+msgstr ""
+
+#: ./specialview_templates/homepageview.pt:19
+msgid "UPCOMING EVENT"
+msgstr ""
+
+#: ./attractions.py:42
+msgid "contact infomation"
+msgstr ""
+
+#: ./specialview.py:28
+msgid "content body"
+msgstr ""
+
+#: ./attractions.py:92
+msgid "copyright mark"
+msgstr ""
+
+#: ./attractions.py:67
+msgid "head Image"
+msgstr ""
+
+#: ./attractions.py:47
+msgid "website url"
+msgstr ""
+

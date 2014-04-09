@@ -1,0 +1,32 @@
+<section class="post-wrapper-top dm-shadow clearfix" id="plone-breadcrumbs">
+  <div class="container">
+    <div id="portal-breadcrumbs"
+         class="col-lg-12"
+         i18n:domain="plone"
+         tal:define="breadcrumbs view/breadcrumbs;
+                     is_rtl view/is_rtl">
+      <ul class="breadcrumb pull-right">
+        <li id="breadcrumbs-you-are-here" i18n:translate="you_are_here">You are here:</li>
+        <li id="breadcrumbs-home"><a i18n:translate="tabs_home"
+                                     tal:attributes="href view/navigation_root_url">Home</a>
+        </li>
+        <li tal:repeat="crumb breadcrumbs"
+            tal:attributes="dir python:is_rtl and 'rtl' or 'ltr';
+                            id string:breadcrumbs-${repeat/crumb/number}"><tal:item tal:define="is_last repeat/crumb/end;
+
+                            url crumb/absolute_url;
+                            title crumb/Title"><a href="#"
+
+                            tal:omit-tag="not: url"
+                            tal:condition="python:not is_last"
+                            tal:attributes="href url"
+                            tal:content="python:title">crumb</a><span id="breadcrumbs-current"
+
+                            tal:condition="is_last"
+                            tal:content="title">crumb</span>
+        </tal:item></li>
+      </ul>
+    </div>
+  </div>
+</section><!-- end post-wrapper-top -->
+

@@ -15,13 +15,415 @@
 <metal:main fill-slot="content-core">
   <metal:content-core define-macro="content-core">
 
-    <h2>
-        Rendered from
-        attractions_templates/<span tal:replace="template/id" />
-    </h2>
+
+		<section class="postwrapper clearfix" id="plone-content-attractions">
+        	<div class="container">
+            	<div class="row">
+                	<div class="half-width clearfix">
+                    	<div id="content" class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                        
+<h1 tal:content="context/Title"></h1>
+
+                            <div class="bs-example bs-example-tabs">
+                              <ul id="myTab" class="nav nav-tabs">
+                                <li><a href="#description-tab" data-toggle="tab" i18n:translate="">Description</a></li>
+                                <li><a href="#profile-tab" data-toggle="tab" i18n:translate="">Profile</a></li>
+                                <li><a href="#gallery-tab" data-toggle="tab" i18n:translate="">Gallery</a></li>
+                                <li><a href="#related-tab" data-toggle="tab" i18n:translate="">related Items</a></li>
+                              </ul>
+                              <div id="myTabContent" class="tab-content">
+                                <div class="tab-pane fade" id="description-tab"
+                                     tal:define="headImage nocall:context/headImage">
+                                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <img tal:attributes="src string:${context/absolute_url}/@@download/headImage/${headImage/filename}"
+                                         width="100%"/>
+                                  </div>
+                                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                                       tal:content="structure context/introduction/raw"></div>
+                                </div>
+                                <div class="tab-pane fade in active" id="description-tab2"
+                                     tal:define="headImage nocall:context/headImage">
+                                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <img tal:attributes="src string:${context/absolute_url}/@@download/headImage/${headImage/filename}"
+                                         width="100%"/>
+                                  </div>
+                                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                                       tal:content="structure context/introduction/raw"></div>
+                                </div>
+                                <div class="tab-pane fade" id="profile-tab">
+
+<table class="table table-striped">
+  <tbody>
+    <tr>
+      <td><strong i18n:translate="">City</strong></td>
+      <td tal:content="context/cityName/to_object/Title">content in here</td>
+    </tr>
+    <tr>
+      <td><strong i18n:translate="">contact information</strong></td>
+      <td tal:content="structure context/contact/raw">content in here</td>
+    </tr>
+    <tr tal:define="location nocall:context/location"
+        tal:condition="nocall:location">
+      <td><strong i18n:translate="">Location</strong></td>
+      <td tal:content="location"></td>
+    </tr>
+    <tr tal:define="address nocall:context/address"
+        tal:condition="nocall:address">
+      <td><strong i18n:translate="">Address</strong></td>
+      <td tal:content="address"></td>
+    </tr>
+    <tr tal:define="webSiteUrl nocall:context/webSiteUrl"
+        tal:condition="nocall:webSiteUrl">
+      <td><strong i18n:translate="">website url</strong></td>
+      <td>
+        <a tal:attributes="href webSiteUrl"
+           tal:content="webSiteUrl"
+           target="_blank">
+        </a>
+      </td>
+    </tr>
+    <tr tal:define="transportation nocall:context/transportation"
+        tal:condition="nocall:transportation">
+      <td><strong i18n:translate="">Transportation</strong></td>
+      <td tal:content="structure transportation/raw"></td>
+    </tr>
+  </tbody>
+</table>
+                                </div>
+                                <div class="tab-pane" id="gallery-tab">
+
+<table class="table">
+  <tbody>
+    <tr>
+      <td>
+                        <div tal:define="image nocall:context/headImage"
+                             tal:condition="nocall:image">
+                        <div class="portfolio-columns">
+                            <div class="media_element ImageWrapper boxes_img">
+                                <a data-placement="bottom"
+                                   data-toggle="tooltip"
+                                   data-original-title="View item"
+                                   title=""
+                                   rel="prettyPhoto"
+                                   tal:attributes="href string:${context/absolute_url}/@@download/headImage/${image/filename}">
+                                  <img tal:attributes="src string:${context/absolute_url}/@@download/headImage/${image/filename}" alt=""
+                                       width="200px">
+                                </a>
+                            </div><!-- media_element -->
+                        </div><!-- item -->
+                        </div>
+
+      </td>
+      <td>
+                        <div tal:define="image nocall:context/image1"
+                             tal:condition="nocall:image">
+                        <div class="portfolio-columns">
+                            <div class="media_element ImageWrapper boxes_img">
+                                <a data-placement="bottom"
+                                   data-toggle="tooltip"
+                                   data-original-title="View item"
+                                   title=""
+                                   rel="prettyPhoto"
+                                   tal:attributes="href string:${context/absolute_url}/@@download/image1/${image/filename}">
+                                  <img tal:attributes="src string:${context/absolute_url}/@@download/image1/${image/filename}" alt=""
+                                       width="200px">
+                                </a>
+                            </div><!-- media_element -->
+                        </div><!-- item -->
+                        </div>
+
+      </td>
+      <td>
+                        <div tal:define="image nocall:context/image2"
+                             tal:condition="nocall:image">
+                        <div class="portfolio-columns">
+                            <div class="media_element ImageWrapper boxes_img">
+                                <a data-placement="bottom"
+                                   data-toggle="tooltip"
+                                   data-original-title="View item"
+                                   title=""
+                                   rel="prettyPhoto"
+                                   tal:attributes="href string:${context/absolute_url}/@@download/image2/${image/filename}">
+                                  <img tal:attributes="src string:${context/absolute_url}/@@download/image2/${image/filename}" alt=""
+                                       width="200px">
+                                </a>
+                            </div><!-- media_element -->
+                        </div><!-- item -->
+                        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+                        <div tal:define="image nocall:context/image3"
+                             tal:condition="nocall:image">
+                        <div class="portfolio-columns">
+                            <div class="media_element ImageWrapper boxes_img">
+                                <a data-placement="bottom"
+                                   data-toggle="tooltip"
+                                   data-original-title="View item"
+                                   title=""
+                                   rel="prettyPhoto"
+                                   tal:attributes="href string:${context/absolute_url}/@@download/image3/${image/filename}">
+                                  <img tal:attributes="src string:${context/absolute_url}/@@download/image3/${image/filename}" alt=""
+                                       width="200px">
+                                </a>
+                            </div><!-- media_element -->
+                        </div><!-- item -->
+                        </div>
+      </td>
+      <td>
+                        <div tal:define="image nocall:context/image4"
+                             tal:condition="nocall:image">
+                        <div class="portfolio-columns">
+                            <div class="media_element ImageWrapper boxes_img">
+                                <a data-placement="bottom"
+                                   data-toggle="tooltip"
+                                   data-original-title="View item"
+                                   title=""
+                                   rel="prettyPhoto"
+                                   tal:attributes="href string:${context/absolute_url}/@@download/image4/${image/filename}">
+                                  <img tal:attributes="src string:${context/absolute_url}/@@download/image4/${image/filename}" alt=""
+                                       width="200px">
+                                </a>
+                            </div><!-- media_element -->
+                        </div><!-- item -->
+                        </div>
+      </td>
+      <td>
+                        <div tal:define="image nocall:context/image5"
+                             tal:condition="nocall:image">
+                        <div class="portfolio-columns">
+                            <div class="media_element ImageWrapper boxes_img">
+                                <a data-placement="bottom"
+                                   data-toggle="tooltip"
+                                   data-original-title="View item"
+                                   title=""
+                                   rel="prettyPhoto"
+                                   tal:attributes="href string:${context/absolute_url}/@@download/image5/${image/filename}">
+                                  <img tal:attributes="src string:${context/absolute_url}/@@download/image5/${image/filename}" alt=""
+                                       width="200px">
+                                </a>
+                            </div><!-- media_element -->
+                        </div><!-- item -->
+                        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 
-    <div tal:content="context/Title">Title inserted here</div>
+
+
+
+
+
+
+
+                                </div>
+                                <div class="tab-pane fade" id="related-tab">
+                                  <p>4444444444444444444444444444444sweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+                                </div>
+                                
+                              </div>
+                            </div><!-- /example -->
+                            
+                        
+          				</div><!-- end col-lg-12 -->
+                        
+						<div id="sidebar" class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                         	<div class="widget">
+								<form action="#" id="search_form">
+                                 	<input type="text" class="form-control" placeholder="Search">     
+								</form><!-- end search form -->
+                            </div><!-- end widget -->
+                            
+                         	<div class="widget">
+                            	<div class="title"><h3>ABOUT Jollyness</h3></div>
+								<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>                                
+                            </div><!-- end widget -->
+                            
+                         	<div class="widget">
+                            	<div class="title"><h3>TABBED WIDGET</h3></div>
+                                <div class="tabbable">
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"><a href="#recent" data-toggle="tab">Popular</a></li>
+                                        <li><a href="#new" data-toggle="tab">New</a></li>
+                                        <li><a href="#comments" data-toggle="tab">Comments</a></li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="recent">
+                                            <ul class="recent_posts">
+                                                <li>
+                                                    <div class="valign">
+                                                        <div class="recent_post_img">
+                                                            <a href="#"><img src="demos/01_recent.jpg" alt="" /></a>
+                                                        </div>
+                                                        <div>
+                                                            <h4>First Title comes here</h4>
+                                                            <a class="readmore" href="#">March, 6th 2014</a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="valign">
+                                                        <div class="recent_post_img">
+                                                            <a href="#"><img src="demos/02_recent.jpg" alt="" /></a>
+                                                        </div>
+                                                        <div>
+                                                            <h4>Second Title comes here</h4>
+                                                            <a class="readmore" href="#">March, 6th 2014</a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="valign">
+                                                        <div class="recent_post_img">
+                                                            <a href="#"><img src="demos/03_recent.jpg" alt="" /></a>
+                                                        </div>
+                                                        <div>
+                                                            <h4>Thrid Title comes here</h4>
+                                                            <a class="readmore" href="#">March, 6th 2014</a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul><!-- recent posts -->
+                                        </div>
+                                        <div class="tab-pane" id="new">
+                                            <ul class="recent_posts">
+                                                <li>
+                                                    <div class="valign">
+                                                        <div class="recent_post_img">
+                                                            <a href="#"><img src="demos/01_recent.jpg" alt="" /></a>
+                                                        </div>
+                                                        <div>
+                                                            <h4>First Title comes here</h4>
+                                                            <a class="readmore" href="#">March, 6th 2014</a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="valign">
+                                                        <div class="recent_post_img">
+                                                            <a href="#"><img src="demos/02_recent.jpg" alt="" /></a>
+                                                        </div>
+                                                        <div>
+                                                            <h4>Second Title comes here</h4>
+                                                            <a class="readmore" href="#">March, 6th 2014</a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="valign">
+                                                        <div class="recent_post_img">
+                                                            <a href="#"><img src="demos/03_recent.jpg" alt="" /></a>
+                                                        </div>
+                                                        <div>
+                                                            <h4>Thrid Title comes here</h4>
+                                                            <a class="readmore" href="#">March, 6th 2014</a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul><!-- recent posts -->
+                                        </div>
+                                        <div class="tab-pane" id="comments">
+                                            <ul class="recent_posts">
+                                                <li>
+                                                    <div class="valign">
+                                                        <div class="recent_post_img">
+                                                            <a href="#"><img src="demos/01_recent.jpg" alt="" /></a>
+                                                        </div>
+                                                        <div>
+                                                            <h4>First Title comes here</h4>
+                                                            <a class="readmore" href="#">March, 6th 2014</a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="valign">
+                                                        <div class="recent_post_img">
+                                                            <a href="#"><img src="demos/02_recent.jpg" alt="" /></a>
+                                                        </div>
+                                                        <div>
+                                                            <h4>Second Title comes here</h4>
+                                                            <a class="readmore" href="#">March, 6th 2014</a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="valign">
+                                                        <div class="recent_post_img">
+                                                            <a href="#"><img src="demos/03_recent.jpg" alt="" /></a>
+                                                        </div>
+                                                        <div>
+                                                            <h4>Thrid Title comes here</h4>
+                                                            <a class="readmore" href="#">March, 6th 2014</a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul><!-- recent posts -->
+                                        </div>
+                                    </div><!-- end tab content -->
+                                </div><!-- end tab pane -->
+							</div><!-- end widget -->
+
+                         	<div class="widget">
+                            	<div class="title"><h3>CATEGORIES</h3></div>
+                                <ul class="nav nav-tabs nav-stacked">
+                                    <li><a href="#">User Interface</a></li>
+                                    <li><a href="#">Website Design</a></li>
+                                    <li><a href="#">Mobile Applications</a></li>
+                                    <li><a href="#">CMS Solutions</a></li>
+                                    <li><a href="#">Typography</a></li>
+                           		</ul>                              
+                            </div><!-- end widget -->
+
+                         	<div class="widget">
+                            	<div class="title"><h3>RECENT POSTS</h3></div>
+                                <ul class="recent_posts_widget">
+                                    <li>
+                                        <a href="#">
+                                        <img src="demos/03_recent.jpg" alt="" />Nulla vitae libero, a pharetra augue. Integer posuere a ante 
+                                        </a>
+                                        <a class="readmore" href="#">Feburay 16, 2013</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                        <img src="demos/03_recent.jpg" alt="" />Nulla vitae libero, a pharetra augue. Integer posuere a ante 
+                                        </a>
+                                        <a class="readmore" href="#">Feburay 16, 2013</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                        <img src="demos/03_recent.jpg" alt="">Nulla vitae libero, a pharetra augue. Integer posuere a ante 
+                                        </a>
+                                        <a class="readmore" href="#">Feburay 16, 2013</a>
+                                    </li>
+                                </ul><!-- recent posts -->                              
+                            </div><!-- end widget -->
+
+                         	<div class="widget">
+                            	<div class="title"><h3>FLICKR WIDGET</h3></div>									<ul class="flickr-gallery">
+                                    	<li><a href="#"><img src="demos/01_flickr.jpg" alt=""></a></li>
+                                    	<li><a href="#"><img src="demos/02_flickr.jpg" alt=""></a></li>
+                                    	<li><a href="#"><img src="demos/03_flickr.jpg" alt=""></a></li>
+                                    	<li><a href="#"><img src="demos/04_flickr.jpg" alt=""></a></li>
+                                    	<li><a href="#"><img src="demos/05_flickr.jpg" alt=""></a></li>
+                                    	<li><a href="#"><img src="demos/06_flickr.jpg" alt=""></a></li>
+                                    	<li><a href="#"><img src="demos/07_flickr.jpg" alt=""></a></li>
+                                    	<li><a href="#"><img src="demos/08_flickr.jpg" alt=""></a></li>
+                                    </ul><!-- end flickr -->	                           
+                            </div><!-- end widget -->                                                                             
+                        </div><!-- end sidebar -->
+                	</div><!-- end half-width -->
+                </div><!-- end row -->
+            </div><!-- end container -->
+        </section><!-- end postwrapper -->
+
+
+
+
+
+
 
   </metal:content-core>
 </metal:main>

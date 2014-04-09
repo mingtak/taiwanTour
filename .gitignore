@@ -19,3 +19,5 @@ var/
 config.py
 resources/
 static/
+collective.ckeditor.tar.gz
+collective.ckeditor/

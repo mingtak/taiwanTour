@@ -1,0 +1,80 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="twtour.content">
+<body>
+
+<tal:comment tal:condition="nothing">
+    This is a sample view template. It will not be used for rendering the
+    content unless activated by creation of a view class with a matching name.
+</tal:comment>
+
+<metal:main fill-slot="content-core">
+  <metal:content-core define-macro="content-core">
+
+<!-- Slide 1 -->
+<div>
+  <h3>Slide 1</h3>
+  <span tal:content="string:size: ${context/slideImage1/_height} X ${context/slideImage1/_width}"/><br/>
+  <img tal:attributes="src string:${context/absolute_url}/@@download/slideImage1/${context/slideImage1/filename}"
+       width="400px"/><br/>
+  <span tal:content="string:Slogan: ${context/slideImage1Slogan}"/><br/>
+  <span tal:content="string:Description: ${context/slideImage1Description}"/>
+</div>
+<hr>
+<!-- Slide 2 -->
+<div>
+  <h3>Slide 2</h3>
+  <span tal:content="string:size: ${context/slideImage2/_height} X ${context/slideImage2/_width}"/><br/>
+  <img tal:attributes="src string:${context/absolute_url}/@@download/slideImage2/${context/slideImage2/filename}"
+       width="400px"/><br/>
+  <span tal:content="string:size: ${context/slideImage2Small/_height} X ${context/slideImage2Small/_width}"/><br/>
+  <img tal:attributes="src string:${context/absolute_url}/@@download/slideImage2Small/${context/slideImage2Small/filename}"
+       width="200px"/><br/>
+  <span tal:content="string:Slogan: ${context/slideImage2Slogan}"/><br/>
+  <span tal:content="string:Description: ${context/slideImage2Description}"/>
+</div>
+<hr>
+<!-- Slide 3 -->
+<div>
+  <h3>Slide 3</h3>
+  <span tal:content="string:size: ${context/slideImage3/_height} X ${context/slideImage3/_width}"/><br/>
+  <img tal:attributes="src string:${context/absolute_url}/@@download/slideImage3/${context/slideImage3/filename}"
+       width="400px"/><br/>
+  <span tal:content="string:size: ${context/slideImage3Small/_height} X ${context/slideImage3Small/_width}"/><br/>
+  <img tal:attributes="src string:${context/absolute_url}/@@download/slideImage3Small/${context/slideImage3Small/filename}"
+       width="200px"/><br/>
+  <span tal:content="string:Slogan: ${context/slideImage3Slogan}"/><br/>
+  <span tal:content="string:Description1: ${context/slideImage3Description1}"/><br/>
+  <span tal:content="string:Description2: ${context/slideImage3Description2}"/>
+</div>
+<hr>
+<!-- Slide 4 -->
+<div>
+  <h3>Slide 4</h3>
+  <span tal:content="string:size: ${context/slideImage4/_height} X ${context/slideImage4/_width}"/><br/>
+  <img tal:attributes="src string:${context/absolute_url}/@@download/slideImage4/${context/slideImage4/filename}"
+       width="400px"/><br/>
+  <span tal:content="string:size: ${context/slideImage4Small/_height} X ${context/slideImage4Small/_width}"/><br/>
+  <img tal:attributes="src string:${context/absolute_url}/@@download/slideImage4Small/${context/slideImage4Small/filename}"
+       width="200px"/><br/>
+  <span tal:content="string:Slogan: ${context/slideImage4Slogan}"/><br/>
+  <span tal:content="string:Description1: ${context/slideImage4Description1}"/><br/>
+  <span tal:content="string:Description2: ${context/slideImage4Description2}"/>
+</div>
+<hr>
+
+
+
+
+
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+
