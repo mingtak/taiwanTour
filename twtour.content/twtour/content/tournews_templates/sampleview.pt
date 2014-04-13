@@ -1,0 +1,74 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="twtour.content">
+<body>
+
+<tal:comment tal:condition="nothing">
+    This is a sample view template. It will not be used for rendering the
+    content unless activated by creation of a view class with a matching name.
+</tal:comment>
+
+<metal:main fill-slot="content-core">
+  <metal:content-core define-macro="content-core">
+
+<!-- plone-content Begin -->
+<section id="plone-content">
+  <div class="container">
+    <div class="row">
+      <div class="half-width clearfix">
+        <div id="content" class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+
+
+<div class="title1">
+  <h1 tal:content="context/Title"></h1>
+  <hr><br/><br/>
+</div>
+
+
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"
+     tal:define="headImage nocall:context/headImage"
+     tal:condition="nocall:headImage">
+    <img tal:attributes="src string:${context/absolute_url}/@@download/headImage/${headImage/filename}"
+         width="100%"/>
+</div>
+
+<div tal:content="structure context/detail/output">
+</div>
+<hr>
+
+<p></p>
+<table class="table table-striped table-hover">
+  <tbody>
+    <tr tal:define="relatedAttractions nocall:context/relatedAttractions"
+        tal:condition="nocall:relatedAttractions">
+      <td i18n:translate="">Related Attractions</td>
+      <td>
+<tal:relatedAttractions repeat="item relatedAttractions">
+<a tal:attributes="href item/to_object/absolute_url"><span tal:content="item/to_object/title"/></a><br/>
+</tal:relatedAttractions>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- plone-content End -->
+
+
+
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

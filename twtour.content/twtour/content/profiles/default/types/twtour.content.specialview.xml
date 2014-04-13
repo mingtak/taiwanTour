@@ -26,10 +26,13 @@
 
   <!-- View information -->
   <property name="link_target"></property>
-  <property name="immediate_view">homePageView</property>
-  <property name="default_view">homePageView</property>
+  <property name="immediate_view">view2</property>
+  <property name="default_view">view2</property>
   <property name="view_methods">
    <element value="homePageView"/>
+   <element value="attractionsView" />
+   <element value="newsView" />
+   <element value="eventView" />
    <element value="view2"/>
   </property>
   <property name="default_view_fallback">False</property>

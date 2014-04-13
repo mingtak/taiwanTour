@@ -16,7 +16,7 @@
   <metal:content-core define-macro="content-core">
 
 
-		<section class="postwrapper clearfix" id="plone-content-attractions">
+		<section class="postwrapper clearfix" id="plone-content">
         	<div class="container">
             	<div class="row">
                 	<div class="half-width clearfix">
@@ -52,29 +52,29 @@
                                 </div>
                                 <div class="tab-pane fade" id="profile-tab">
 
-<table class="table table-striped">
+<table class="table table-striped table-hover">
   <tbody>
     <tr>
-      <td><strong i18n:translate="">City</strong></td>
+      <td width="15%"><strong i18n:translate="">City</strong></td>
       <td tal:content="context/cityName/to_object/Title">content in here</td>
     </tr>
     <tr>
-      <td><strong i18n:translate="">contact information</strong></td>
+      <td width="15%"><strong i18n:translate="">contact information</strong></td>
       <td tal:content="structure context/contact/raw">content in here</td>
     </tr>
     <tr tal:define="location nocall:context/location"
         tal:condition="nocall:location">
-      <td><strong i18n:translate="">Location</strong></td>
+      <td width="15%"><strong i18n:translate="">Location</strong></td>
       <td tal:content="location"></td>
     </tr>
     <tr tal:define="address nocall:context/address"
         tal:condition="nocall:address">
-      <td><strong i18n:translate="">Address</strong></td>
+      <td width="15%"><strong i18n:translate="">Address</strong></td>
       <td tal:content="address"></td>
     </tr>
     <tr tal:define="webSiteUrl nocall:context/webSiteUrl"
         tal:condition="nocall:webSiteUrl">
-      <td><strong i18n:translate="">website url</strong></td>
+      <td width="15%"><strong i18n:translate="">website url</strong></td>
       <td>
         <a tal:attributes="href webSiteUrl"
            tal:content="webSiteUrl"
@@ -84,7 +84,7 @@
     </tr>
     <tr tal:define="transportation nocall:context/transportation"
         tal:condition="nocall:transportation">
-      <td><strong i18n:translate="">Transportation</strong></td>
+      <td width="15%"><strong i18n:translate="">Transportation</strong></td>
       <td tal:content="structure transportation/raw"></td>
     </tr>
   </tbody>
@@ -210,18 +210,43 @@
     </tr>
   </tbody>
 </table>
-
-
-
-
-
-
-
-
-
                                 </div>
                                 <div class="tab-pane fade" id="related-tab">
-                                  <p>4444444444444444444444444444444sweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+
+
+<table class="table table-hover">
+  <tbody>
+    <tr>
+      <td>
+        <strong i18n:translate="">related event:</strong>
+      </td>
+<tal:back_ref define="back_refs python:view.findBackReferences(portal_type='twtour.content.tourevent')">
+      <td>
+        <span tal:condition="python:True if back_refs == [] else False"" i18n:translate="">No related item yet.</span>
+        <tal:hrefs repeat="back_ref back_refs">
+          <a tal:attributes="href back_ref/absolute_url" tal:content="back_ref/Title"></a><br/>
+        </tal:hrefs>
+      </td>
+</tal:back_ref>
+    </tr>
+    <tr>
+      <td>
+        <strong i18n:translate="">related news:</strong>
+      </td>
+<tal:back_ref define="back_refs python:view.findBackReferences(portal_type='twtour.content.tournews')">
+      <td>
+        <span tal:condition="python:True if back_refs == [] else False"" i18n:translate="">No related item yet.</span>
+        <tal:hrefs repeat="back_ref back_refs">
+          <a tal:attributes="href back_ref/absolute_url" tal:content="back_ref/Title"></a><br/>
+        </tal:hrefs>
+      </td>
+</tal:back_ref>
+    </tr>
+  </tbody>
+</table>
+
+
+
                                 </div>
                                 
                               </div>
@@ -229,191 +254,17 @@
                             
                         
           				</div><!-- end col-lg-12 -->
-                        
-						<div id="sidebar" class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                         	<div class="widget">
-								<form action="#" id="search_form">
-                                 	<input type="text" class="form-control" placeholder="Search">     
-								</form><!-- end search form -->
-                            </div><!-- end widget -->
-                            
-                         	<div class="widget">
-                            	<div class="title"><h3>ABOUT Jollyness</h3></div>
-								<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</p>                                
-                            </div><!-- end widget -->
-                            
-                         	<div class="widget">
-                            	<div class="title"><h3>TABBED WIDGET</h3></div>
-                                <div class="tabbable">
-                                    <ul class="nav nav-tabs">
-                                        <li class="active"><a href="#recent" data-toggle="tab">Popular</a></li>
-                                        <li><a href="#new" data-toggle="tab">New</a></li>
-                                        <li><a href="#comments" data-toggle="tab">Comments</a></li>
-                                    </ul>
-                                    <div class="tab-content">
-                                        <div class="tab-pane active" id="recent">
-                                            <ul class="recent_posts">
-                                                <li>
-                                                    <div class="valign">
-                                                        <div class="recent_post_img">
-                                                            <a href="#"><img src="demos/01_recent.jpg" alt="" /></a>
-                                                        </div>
-                                                        <div>
-                                                            <h4>First Title comes here</h4>
-                                                            <a class="readmore" href="#">March, 6th 2014</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="valign">
-                                                        <div class="recent_post_img">
-                                                            <a href="#"><img src="demos/02_recent.jpg" alt="" /></a>
-                                                        </div>
-                                                        <div>
-                                                            <h4>Second Title comes here</h4>
-                                                            <a class="readmore" href="#">March, 6th 2014</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="valign">
-                                                        <div class="recent_post_img">
-                                                            <a href="#"><img src="demos/03_recent.jpg" alt="" /></a>
-                                                        </div>
-                                                        <div>
-                                                            <h4>Thrid Title comes here</h4>
-                                                            <a class="readmore" href="#">March, 6th 2014</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul><!-- recent posts -->
-                                        </div>
-                                        <div class="tab-pane" id="new">
-                                            <ul class="recent_posts">
-                                                <li>
-                                                    <div class="valign">
-                                                        <div class="recent_post_img">
-                                                            <a href="#"><img src="demos/01_recent.jpg" alt="" /></a>
-                                                        </div>
-                                                        <div>
-                                                            <h4>First Title comes here</h4>
-                                                            <a class="readmore" href="#">March, 6th 2014</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="valign">
-                                                        <div class="recent_post_img">
-                                                            <a href="#"><img src="demos/02_recent.jpg" alt="" /></a>
-                                                        </div>
-                                                        <div>
-                                                            <h4>Second Title comes here</h4>
-                                                            <a class="readmore" href="#">March, 6th 2014</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="valign">
-                                                        <div class="recent_post_img">
-                                                            <a href="#"><img src="demos/03_recent.jpg" alt="" /></a>
-                                                        </div>
-                                                        <div>
-                                                            <h4>Thrid Title comes here</h4>
-                                                            <a class="readmore" href="#">March, 6th 2014</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul><!-- recent posts -->
-                                        </div>
-                                        <div class="tab-pane" id="comments">
-                                            <ul class="recent_posts">
-                                                <li>
-                                                    <div class="valign">
-                                                        <div class="recent_post_img">
-                                                            <a href="#"><img src="demos/01_recent.jpg" alt="" /></a>
-                                                        </div>
-                                                        <div>
-                                                            <h4>First Title comes here</h4>
-                                                            <a class="readmore" href="#">March, 6th 2014</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="valign">
-                                                        <div class="recent_post_img">
-                                                            <a href="#"><img src="demos/02_recent.jpg" alt="" /></a>
-                                                        </div>
-                                                        <div>
-                                                            <h4>Second Title comes here</h4>
-                                                            <a class="readmore" href="#">March, 6th 2014</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="valign">
-                                                        <div class="recent_post_img">
-                                                            <a href="#"><img src="demos/03_recent.jpg" alt="" /></a>
-                                                        </div>
-                                                        <div>
-                                                            <h4>Thrid Title comes here</h4>
-                                                            <a class="readmore" href="#">March, 6th 2014</a>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul><!-- recent posts -->
-                                        </div>
-                                    </div><!-- end tab content -->
-                                </div><!-- end tab pane -->
-							</div><!-- end widget -->
 
-                         	<div class="widget">
-                            	<div class="title"><h3>CATEGORIES</h3></div>
-                                <ul class="nav nav-tabs nav-stacked">
-                                    <li><a href="#">User Interface</a></li>
-                                    <li><a href="#">Website Design</a></li>
-                                    <li><a href="#">Mobile Applications</a></li>
-                                    <li><a href="#">CMS Solutions</a></li>
-                                    <li><a href="#">Typography</a></li>
-                           		</ul>                              
-                            </div><!-- end widget -->
 
-                         	<div class="widget">
-                            	<div class="title"><h3>RECENT POSTS</h3></div>
-                                <ul class="recent_posts_widget">
-                                    <li>
-                                        <a href="#">
-                                        <img src="demos/03_recent.jpg" alt="" />Nulla vitae libero, a pharetra augue. Integer posuere a ante 
-                                        </a>
-                                        <a class="readmore" href="#">Feburay 16, 2013</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                        <img src="demos/03_recent.jpg" alt="" />Nulla vitae libero, a pharetra augue. Integer posuere a ante 
-                                        </a>
-                                        <a class="readmore" href="#">Feburay 16, 2013</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                        <img src="demos/03_recent.jpg" alt="">Nulla vitae libero, a pharetra augue. Integer posuere a ante 
-                                        </a>
-                                        <a class="readmore" href="#">Feburay 16, 2013</a>
-                                    </li>
-                                </ul><!-- recent posts -->                              
-                            </div><!-- end widget -->
 
-                         	<div class="widget">
-                            	<div class="title"><h3>FLICKR WIDGET</h3></div>									<ul class="flickr-gallery">
-                                    	<li><a href="#"><img src="demos/01_flickr.jpg" alt=""></a></li>
-                                    	<li><a href="#"><img src="demos/02_flickr.jpg" alt=""></a></li>
-                                    	<li><a href="#"><img src="demos/03_flickr.jpg" alt=""></a></li>
-                                    	<li><a href="#"><img src="demos/04_flickr.jpg" alt=""></a></li>
-                                    	<li><a href="#"><img src="demos/05_flickr.jpg" alt=""></a></li>
-                                    	<li><a href="#"><img src="demos/06_flickr.jpg" alt=""></a></li>
-                                    	<li><a href="#"><img src="demos/07_flickr.jpg" alt=""></a></li>
-                                    	<li><a href="#"><img src="demos/08_flickr.jpg" alt=""></a></li>
-                                    </ul><!-- end flickr -->	                           
-                            </div><!-- end widget -->                                                                             
-                        </div><!-- end sidebar -->
+
+
+
+
+
+
+
+
                 	</div><!-- end half-width -->
                 </div><!-- end row -->
             </div><!-- end container -->

@@ -40,6 +40,8 @@
     <browser:jbot
       directory="jbot_templates" />
 
+  <!-- browser view -->
+  <include package=".browser" />
 
 
 </configure>

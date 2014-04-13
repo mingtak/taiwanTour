@@ -1,0 +1,88 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="twtour.content">
+<body>
+
+
+<metal:main fill-slot="content-core">
+  <metal:content-core define-macro="content-core">
+
+                <section class="postwrapper clearfix" id="plone-content">
+                <div class="container">
+                <div class="row">
+                        <div class="half-width clearfix">
+                        <div id="content" class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+
+<div class="title1">
+    <h1 i18n:translate="">Upcoming Event</h1>
+<hr><br/><br/>
+</div>
+
+
+<tal:brain define="catalog python:context.portal_catalog;
+                   start python:int(getattr(context.REQUEST, 'start', 0));
+                   brainTotal python:catalog({'portal_type':'twtour.content.tourevent', 'review_state':'published'},
+                                             sort_on='modified', sort_order='descending');
+                   brain python:brainTotal[start:start+10]">
+
+<table class="table">
+  <tbody>
+    <tr tal:repeat="item brain">
+      <td width='15%' class="recent_posts_widget">
+        <a tal:attributes="href item/getURL">
+          <img tal:attributes="src python:'%s/@@download/headImage/%s' % (item.getObject().absolute_url(),
+                                                                          item.getObject().headImage.filename)">
+        </a>
+      </td>
+      <td>
+        <a tal:attributes="href item/getURL">
+          <strong tal:content="item/Title"></strong>
+        </a><br/><br />
+        <span tal:content="item/Description"></span>
+        <p class="pull-right">
+           <span i18n:translate="">Period:</span>
+           <span tal:content="python:'%s - %s' % (str(item.getObject().startDate).split()[0], str(item.getObject().endDate).split()[0])">2014-03-22</span>
+        </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<tal:button condition="python:True">
+  <tal:setValue define="thisStart python:int(getattr(context.REQUEST, 'start', 0));
+                        thisEnd python:thisStart+10">
+<a tal:attributes="href python:'..?start=%s' % str(thisStart-10)">
+<button tal:condition="python:True if thisStart > 0 else False"
+        class="btn btn-default btn-rounded" type="button" i18n:translate="">Previous Page</button>
+</a>
+
+<a tal:attributes="href string:..?start=${thisEnd}">
+  <button tal:condition="python:True if len(brainTotal) > thisEnd else False"
+          class="btn btn-default btn-rounded" type="button" i18n:translate="">Next Page</button>
+</a>
+  </tal:setValue>
+</tal:button>
+
+
+</tal:brain>
+
+
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>

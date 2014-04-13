@@ -1,0 +1,29 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="twgov.content">
+
+  <browser:page
+    for="*"
+    name="getcontentlist"
+    permission="zope2.View"
+    class=".getcontentlist.GetContentList" />
+
+  <browser:page
+    for="*"
+    name="attractionssearch"
+    permission="zope2.View"
+    class=".attractionssearch.AttractionsSearch" />
+
+<!--
+測試用，平常不開
+  <browser:page
+    for="*"
+    name="testFunction"
+    permission="cmf.ManagePortal"
+    class=".testfunction.TestFunction" />
+-->
+
+</configure>
+

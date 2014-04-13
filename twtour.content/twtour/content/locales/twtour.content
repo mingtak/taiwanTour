@@ -1,0 +1,461 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2014-04-11 17:30+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: twtour.content\n"
+
+#: ./attractions.py:87
+#: ./attractions_templates/sampleview.pt:72
+msgid "Address"
+msgstr ""
+
+#: ./specialview_templates/homepageview.pt:433
+msgid "All"
+msgstr ""
+
+#: ./profiles/default/types/twtour.content.attractions.xml
+#: ./specialview_templates/attractionsview.pt:28
+#: ./specialview_templates/homepageview.pt:423
+msgid "Attractions"
+msgstr ""
+
+#: ./profiles/default/types/twtour.content.attractions.xml
+msgid "Attractions for taiwan tour"
+msgstr ""
+
+#: ./city.py:26
+#: ./specialview_templates/homepageview.pt:435
+msgid "Central"
+msgstr ""
+
+#: ./city.py:41
+msgid "Changhua County"
+msgstr ""
+
+#: ./city.py:44
+msgid "Chiayi City"
+msgstr ""
+
+#: ./city.py:45
+msgid "Chiayi County"
+msgstr ""
+
+#: ./profiles/default/types/twtour.content.city.xml
+msgid "Cities Infomation"
+msgstr ""
+
+#: ./attractions_templates/sampleview.pt:58
+#: ./profiles/default/types/twtour.content.city.xml
+msgid "City"
+msgstr ""
+
+#: ./city.py:69
+msgid "City Code"
+msgstr ""
+
+#: ./attractions.py:60
+msgid "City Name"
+msgstr ""
+
+#: ./attractions_templates/sampleview.pt:29
+msgid "Description"
+msgstr ""
+
+#: ./city.py:28
+#: ./specialview_templates/homepageview.pt:437
+msgid "Eastern"
+msgstr ""
+
+#: ./tourevent.py:74
+msgid "Event DM"
+msgstr ""
+
+#: ./tourevent_templates/sampleview.pt:54
+msgid "Event Website"
+msgstr ""
+
+#: ./tourevent.py:53
+#: ./tournews.py:38
+msgid "Event detail information"
+msgstr ""
+
+#: ./tourevent.py:48
+msgid "Event end date"
+msgstr ""
+
+#: ./tourevent.py:43
+msgid "Event start date"
+msgstr ""
+
+#: ./tourevent.py:58
+msgid "Event web site URL"
+msgstr ""
+
+#: ./attractions_templates/sampleview.pt:31
+msgid "Gallery"
+msgstr ""
+
+#: ./tourevent.py:33
+#: ./tournews.py:33
+msgid "Head image"
+msgstr ""
+
+#: ./city.py:38
+msgid "Hsinchu City"
+msgstr ""
+
+#: ./city.py:37
+msgid "Hsinchu County"
+msgstr ""
+
+#: ./city.py:50
+msgid "Hualien County"
+msgstr ""
+
+#: ./attractions.py:128
+msgid "If image copyright OK, please checked the box"
+msgstr ""
+
+#: ./attractions.py:144
+msgid "Image height over 500px"
+msgstr ""
+
+#: ./attractions.py:146
+msgid "Image size over 512KB"
+msgstr ""
+
+#: ./attractions.py:142
+msgid "Image width over 500px"
+msgstr ""
+
+#: ./attractions.py:102
+msgid "Image1"
+msgstr ""
+
+#: ./attractions.py:107
+msgid "Image2"
+msgstr ""
+
+#: ./attractions.py:112
+msgid "Image3"
+msgstr ""
+
+#: ./attractions.py:117
+msgid "Image4"
+msgstr ""
+
+#: ./attractions.py:122
+msgid "Image5"
+msgstr ""
+
+#: ./attractions.py:77
+msgid "Introduction"
+msgstr ""
+
+#: ./city.py:47
+msgid "Kaohsiung City"
+msgstr ""
+
+#: ./city.py:34
+msgid "Keelung City"
+msgstr ""
+
+#: ./city.py:53
+msgid "Kinmen County"
+msgstr ""
+
+#: ./city.py:54
+msgid "Lienchiang County"
+msgstr ""
+
+#: ./attractions.py:82
+#: ./attractions_templates/sampleview.pt:67
+#: ./tourevent.py:38
+msgid "Location"
+msgstr ""
+
+#: ./city.py:39
+msgid "Miaoli County"
+msgstr ""
+
+#: ./city.py:42
+msgid "Nantou County"
+msgstr ""
+
+#: ./city.py:33
+msgid "New Taipei City"
+msgstr ""
+
+#: ./specialview_templates/homepageview.pt:373
+msgid "News"
+msgstr ""
+
+#: ./browser/template/getcontentlist.pt:33
+msgid "Next Page"
+msgstr ""
+
+#: ./attractions_templates/sampleview.pt:225
+msgid "No related item yet."
+msgstr ""
+
+#: ./city.py:25
+#: ./specialview_templates/homepageview.pt:434
+msgid "Northern"
+msgstr ""
+
+#: ./city.py:29
+#: ./specialview_templates/homepageview.pt:438
+msgid "OutlyingIslands"
+msgstr ""
+
+#: ./city.py:52
+msgid "Penghu County"
+msgstr ""
+
+#: ./tourevent_templates/sampleview.pt:49
+msgid "Period"
+msgstr ""
+
+#: ./city.py:48
+msgid "Pingtung County"
+msgstr ""
+
+#: ./browser/template/getcontentlist.pt:31
+msgid "Previous Page"
+msgstr ""
+
+#: ./attractions_templates/sampleview.pt:30
+msgid "Profile"
+msgstr ""
+
+#: ./city.py:63
+msgid "Region"
+msgstr ""
+
+#: ./tourevent_templates/sampleview.pt:59
+#: ./tournews_templates/sampleview.pt:48
+msgid "Related Attractions"
+msgstr ""
+
+#: ./tourevent.py:64
+#: ./tournews.py:44
+msgid "Related attractions"
+msgstr ""
+
+#: ./specialslider.py:31
+msgid "Slide Image1"
+msgstr ""
+
+#: ./specialslider.py:41
+msgid "Slide Image1 Description"
+msgstr ""
+
+#: ./specialslider.py:36
+msgid "Slide Image1 Slogan"
+msgstr ""
+
+#: ./specialslider.py:47
+msgid "Slide Image2"
+msgstr ""
+
+#: ./specialslider.py:62
+msgid "Slide Image2 Description"
+msgstr ""
+
+#: ./specialslider.py:57
+msgid "Slide Image2 Slogan"
+msgstr ""
+
+#: ./specialslider.py:52
+msgid "Slide Image2, web site logo"
+msgstr ""
+
+#: ./specialslider.py:68
+msgid "Slide Image3"
+msgstr ""
+
+#: ./specialslider.py:83
+msgid "Slide Image3 Description1"
+msgstr ""
+
+#: ./specialslider.py:88
+msgid "Slide Image3 Description2"
+msgstr ""
+
+#: ./specialslider.py:78
+msgid "Slide Image3 Slogan"
+msgstr ""
+
+#: ./specialslider.py:73
+msgid "Slide Image3, small image"
+msgstr ""
+
+#: ./specialslider.py:94
+msgid "Slide Image4"
+msgstr ""
+
+#: ./specialslider.py:109
+msgid "Slide Image4 Description1"
+msgstr ""
+
+#: ./specialslider.py:114
+msgid "Slide Image4 Description2"
+msgstr ""
+
+#: ./specialslider.py:104
+msgid "Slide Image4 Slogan"
+msgstr ""
+
+#: ./specialslider.py:99
+msgid "Slide Image4, small image"
+msgstr ""
+
+#: ./browser/template/getcontentlist.pt:8
+msgid "Sorry, no data yat !"
+msgstr ""
+
+#: ./city.py:27
+#: ./specialview_templates/homepageview.pt:436
+msgid "Southern"
+msgstr ""
+
+#: ./profiles/default/types/twtour.content.specialslider.xml
+msgid "Special Slider for taiwan-tour.tw"
+msgstr ""
+
+#: ./profiles/default/types/twtour.content.specialview.xml
+msgid "Special View"
+msgstr ""
+
+#: ./profiles/default/types/twtour.content.specialslider.xml
+msgid "SpecialSlider"
+msgstr ""
+
+#: ./profiles/default/types/twtour.content.specialview.xml
+msgid "SpecialView"
+msgstr ""
+
+#: ./city.py:40
+msgid "Taichung City"
+msgstr ""
+
+#: ./city.py:46
+msgid "Tainan City"
+msgstr ""
+
+#: ./city.py:35
+msgid "Taipei City"
+msgstr ""
+
+#: ./city.py:51
+msgid "Taitung County"
+msgstr ""
+
+#: ./profiles/default/types/twtour.content.tourevent.xml
+msgid "Taiwan Tour Event"
+msgstr ""
+
+#: ./profiles/default/types/twtour.content.tournews.xml
+msgid "Taiwan Tour News Item"
+msgstr ""
+
+#: ./jbot_templates/plone.app.layout.viewlets.footer.pt:8
+msgid "Taiwan-tour.tw<sup>&reg;</sup> Web Site"
+msgstr ""
+
+#: ./city.py:36
+msgid "Taoyuan City"
+msgstr ""
+
+#: ./profiles/default/types/twtour.content.tourevent.xml
+msgid "TourEvent"
+msgstr ""
+
+#: ./profiles/default/types/twtour.content.tournews.xml
+msgid "TourNews"
+msgstr ""
+
+#: ./attractions.py:92
+#: ./attractions_templates/sampleview.pt:87
+msgid "Transportation"
+msgstr ""
+
+#: ./specialview_templates/homepageview.pt:328
+msgid "UPCOMING EVENT"
+msgstr ""
+
+#: ./city.py:49
+msgid "Yilan County"
+msgstr ""
+
+#: ./city.py:43
+msgid "Yunlin County"
+msgstr ""
+
+#: ./attractions.py:67
+#: ./attractions_templates/sampleview.pt:62
+msgid "contact information"
+msgstr ""
+
+#: ./specialview.py:28
+msgid "content body"
+msgstr ""
+
+#: ./attractions.py:127
+msgid "copyright mark"
+msgstr ""
+
+#. Default: "The ${plonecms} ${copyright} 2013-${current_year}"
+#: ./jbot_templates/plone.app.layout.viewlets.footer.pt:11
+msgid "description_copyright"
+msgstr ""
+
+#: ./attractions.py:97
+msgid "head Image"
+msgstr ""
+
+#: ./attractions_templates/sampleview.pt:32
+msgid "related Items"
+msgstr ""
+
+#: ./attractions_templates/sampleview.pt:221
+msgid "related event:"
+msgstr ""
+
+#: ./attractions_templates/sampleview.pt:234
+msgid "related news:"
+msgstr ""
+
+#. Default: "Home"
+#: ./jbot_templates/plone.app.layout.viewlets.path_bar.pt:11
+msgid "tabs_home"
+msgstr ""
+
+#. Default: "Copyright"
+#: ./jbot_templates/plone.app.layout.viewlets.footer.pt:10
+msgid "title_copyright"
+msgstr ""
+
+#: ./attractions.py:72
+#: ./attractions_templates/sampleview.pt:77
+msgid "website url"
+msgstr ""
+
+#. Default: "You are here:"
+#: ./jbot_templates/plone.app.layout.viewlets.path_bar.pt:10
+msgid "you_are_here"
+msgstr ""
+

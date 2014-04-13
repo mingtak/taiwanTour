@@ -1,0 +1,30 @@
+<div xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+     i18n:domain="twtour.content"
+     id="portal-footer">
+          <p>
+               <span i18n:translate="description_copyright" tal:omit-tag="">
+               The
+               <span i18n:name="plonecms" tal:omit-tag="">
+                    <a href="http://www.taiwan-tour.tw" i18n:translate="">Taiwan-tour.tw<sup>&reg;</sup> Web Site</a>
+               </span>
+               <abbr title="Copyright" i18n:name="copyright" i18n:attributes="title title_copyright;">&copy;</abbr>
+               2013-<tal:year i18n:name="current_year" tal:content="view/year" /></span>
+
+          </p>
+
+
+<div id="plone-dmsearch" class="dmsearch" style="display:none">
+  <form id="searchform" action="attractionssearch" method="get">
+    <div class="dm-search-container">
+      <input id="string" class="dmsearch-input" type="text" name="string" value="" placeholder="Attractions Search" i18n:attributes="placeholder">
+    </div>
+    <input id="go" class="dmsearch-submit" type="submit" value="">
+    <span class="searchicon"></span>
+  </form> <!-- end searchform -->
+</div><!-- end search -->
+
+
+
+
+
+</div>

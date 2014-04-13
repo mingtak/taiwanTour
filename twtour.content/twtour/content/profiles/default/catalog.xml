@@ -4,4 +4,10 @@
         <indexed_attr value="region"/>
     </index>
     <column value="region"/>
+
+    <index name="cityCode" meta_type="FieldIndex">
+        <indexed_attr value="cityCode"/>
+    </index>
+    <column value="cityCode"/>
+
 </object>

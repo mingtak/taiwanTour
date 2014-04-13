@@ -1,0 +1,103 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="twtour.content">
+<body>
+
+<tal:comment tal:condition="nothing">
+    This is a sample view template. It will not be used for rendering the
+    content unless activated by creation of a view class with a matching name.
+</tal:comment>
+
+<metal:main fill-slot="content-core">
+  <metal:content-core define-macro="content-core">
+
+
+
+<!-- plone-content Begin -->
+<section id="plone-content">
+  <div class="container">
+    <div class="row">
+      <div class="half-width clearfix">
+        <div id="content" class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+
+<div class="title1">
+    <h1 i18n:translate="">Attractions</h1>
+<hr><br/><br/>
+</div>
+
+
+
+
+<div class="bs-example bs-example-tabs">
+<ul class="nav nav-tabs" id="myTab">
+
+<tal:cityTab define="catalog python:context.portal_catalog;
+                     brain python:catalog(portal_type='twtour.content.city')">
+<li tal:repeat="city brain"
+    tal:attributes="id city/cityCode">
+  <a href="#attractionsList-tab"
+     data-toggle="tab"
+     tal:content="city/Title">Taipei City</a>
+</li>
+</tal:cityTab>
+
+</ul>
+<div class="tab-content" id="myTabContent">
+
+<div class="tab-pane fade in active" id="taiwan-map">
+  <img alt="" src="www.taiwan-tour.tw/zh-tw/51764ed676ee9304/images/taiwan_map_zh_tw.png/@@images/image.png" usemap="#taiwan" />
+</div>
+
+</div>
+</div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section>
+<!-- plone-content End -->
+
+
+<!-- plone-srcipt Begin -->
+<!-- load attractions list, use ajax() -->
+<section id="plone-script">
+
+  <!-- city script -->
+<tal:cityScript define="catalog python:context.portal_catalog;
+                        brain python:catalog(portal_type='twtour.content.city')">
+
+
+<tal:city repeat="city brain">
+  <script type="text/javascript" async="true" defer="true"
+          tal:define="cityCode city/cityCode"
+          tal:content="python:'$(document).ready(function(){$(\'#%s\').click(function(){$(\'#taiwan-map\').load(\'./getcontentlist?portal_type=twtour.content.attractions&cityCode=%s&start=0\');;});;});;' % (cityCode, cityCode)">
+  </script>
+</tal:city>
+</tal:cityScript>
+
+
+</section>
+<!-- plone-script End -->
+
+
+
+
+
+
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

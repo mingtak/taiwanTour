@@ -52,6 +52,22 @@ def test_suite():
 
         # -*- extra stuff goes here -*-
 
+        # Integration tests for TourNews
+        ztc.ZopeDocFileSuite(
+            'TourNews.txt',
+            package='twtour.content',
+            optionflags = OPTION_FLAGS,
+            test_class=TestCase),
+
+
+        # Integration tests for TourEvent
+        ztc.ZopeDocFileSuite(
+            'TourEvent.txt',
+            package='twtour.content',
+            optionflags = OPTION_FLAGS,
+            test_class=TestCase),
+
+
         # Integration tests for SpecialSlider
         ztc.ZopeDocFileSuite(
             'SpecialSlider.txt',

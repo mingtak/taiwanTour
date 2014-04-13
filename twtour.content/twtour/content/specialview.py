@@ -35,16 +35,35 @@ class SpecialView(Container):
 
 
 class HomePageView(grok.View):
-    """ sample view class """
-
+    """ view class """
     grok.context(ISpecialView)
     grok.require('zope2.View')
     grok.name('homePageView')
 
 
+class AttractionsView (grok.View):
+    """ view class """
+    grok.context(ISpecialView)
+    grok.require('zope2.View')
+    grok.name('attractionsView')
+
+
+class NewsView(grok.View):
+    """ view class """
+    grok.context(ISpecialView)
+    grok.require('zope2.View')
+    grok.name('newsView')
+
+
+class EventView(grok.View):
+    """ view class """
+    grok.context(ISpecialView)
+    grok.require('zope2.View')
+    grok.name('eventView')
+
+
 class SampleView2(grok.View):
     """ sample view class """
-
     grok.context(ISpecialView)
     grok.require('zope2.View')
     grok.name('view2')

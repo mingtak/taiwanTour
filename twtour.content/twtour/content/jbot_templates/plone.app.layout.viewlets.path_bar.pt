@@ -1,8 +1,9 @@
-<section class="post-wrapper-top dm-shadow clearfix" id="plone-breadcrumbs">
+<section class="post-wrapper-top dm-shadow clearfix" id="plone-breadcrumbs"
+         xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="twtour.content">
+
   <div class="container">
     <div id="portal-breadcrumbs"
          class="col-lg-12"
-         i18n:domain="plone"
          tal:define="breadcrumbs view/breadcrumbs;
                      is_rtl view/is_rtl">
       <ul class="breadcrumb pull-right">

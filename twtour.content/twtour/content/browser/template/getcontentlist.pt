@@ -1,0 +1,75 @@
+<div id="getAttractionsList"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+     i18n:domain="twtour.content">
+
+<tal:brain define="start python:int(view.request['start']);
+                   end python:int(start)+10;
+                   brain python:view.brain[start:end]">
+  <h2 tal:condition="python:True if len(brain) == 0 and start == 0 else False"
+      i18n:translate="">Sorry, no data yat !</h2>
+  <tal:checkTrue condition="python:False if len(brain) == 0 and start == 0 else True">
+    <h2 tal:define="catalog python:context.portal_catalog;
+                    getCity python:catalog({'portal_type':'twtour.content.city', 'cityCode':brain[0].cityCode})[0]"
+        tal:content="getCity/Title"></h2>
+  </tal:checkTrue>
+
+<table class="table table-hover">
+
+<tal:getItem repeat="item brain">
+    <tr>
+      <td width="15%">
+        <a tal:attributes="href item/getURL">
+          <img class="img-circle alignleft" alt=""
+               tal:attributes="src python:'%s/@@download/headImage/%s' % (item.getURL(),
+                                                                          item.getObject().headImage.filename)">
+        </a>
+      </td>
+      <td width="85%">
+        <a tal:attributes="href item/getURL"><h3 tal:content="item/Title"></h3></a>
+        <p tal:content="item/Description"></p>
+      </td>
+    </tr>
+</tal:getItem>
+</table>
+
+<p>
+<button tal:condition="python:False if start == 0 else True" id='plone-previous-page'
+        class="btn btn-default btn-rounded" type="button" i18n:translate="">Previous Page</button>
+<button tal:condition="python:False if len(view.brain) <= end else True" id='plone-next-page'
+        class="btn btn-default btn-rounded" type="button" i18n:translate="">Next Page</button>
+</p>
+
+
+
+<!-- plone-srcipt2 Begin -->
+<!-- load attractions list, use ajax() -->
+<section id="plone-script2"
+         tal:define="nextHeadString python:'$(document).ready(function(){$(\'#plone-next-page\').click(function(){$(\'#getAttractionsList\').load(\'./getcontentlist?portal_type=twtour.content.attractions&cityCode=%s&start=' % view.request['cityCode'];
+                     previousHeadString python:'$(document).ready(function(){$(\'#plone-previous-page\').click(function(){$(\'#getAttractionsList\').load(\'./getcontentlist?portal_type=twtour.content.attractions&cityCode=%s&start=' % view.request['cityCode'];
+                     tailString python:'\');;});;});;';
+                     nextString python:'%s%s%s' % (nextHeadString, end, tailString);
+                     previousString python:'%s%s%s' % (previousHeadString, start-10, tailString )">
+
+  <script type="text/javascript" async="true" defer="true" tal:content="previousString">
+    $(document).ready(function(){
+        $("#plone-previous-page").click(function(){
+            $("#getAttractionsList").load("./getcontentlist?portal_type=twtour.content.attractions&cityCode=Keelung&start=10");
+        });
+    });
+  </script>
+
+  <script type="text/javascript" async="true" defer="true" tal:content="nextString">
+    $(document).ready(function(){
+        $("#plone-next-page").click(function(){
+            $("#getAttractionsList").load("./getcontentlist?portal_type=twtour.content.attractions&cityCode=Keelung&start=10");
+        });
+    });
+  </script>
+
+
+</section>
+<!-- plone-script2 End -->
+
+</tal:brain>
+
+</div>

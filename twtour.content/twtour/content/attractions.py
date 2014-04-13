@@ -16,14 +16,40 @@ from plone.namedfile.interfaces import IImageScaleTraversable
 
 from z3c.relationfield.schema import RelationList, RelationChoice
 from plone.formwidget.contenttree import ObjPathSourceBinder
-
+from zope.lifecycleevent.interfaces import IObjectAddedEvent
 
 from twtour.content import MessageFactory as _
 from plone.formwidget.autocomplete import AutocompleteMultiFieldWidget, AutocompleteFieldWidget
 from twtour.content.city import ICity
 
+# import for back_references
+from Acquisition import aq_inner
+from zope.component import getUtility
+from zope.intid.interfaces import IIntIds
+from zope.security import checkPermission
+from zc.relation.interfaces import ICatalog
 
-# Interface class; used to define content-type schema.
+from collective import dexteritytextindexer
+from plone.indexer import indexer
+import logging
+
+logger = logging.getLogger("attractions.py")
+
+
+def back_references(source_object, attribute_name):
+    """ Return back references from source object on specified attribute_name """
+    catalog = getUtility(ICatalog)
+    intids = getUtility(IIntIds)
+    result = []
+    for rel in catalog.findRelations(
+                            dict(to_id=intids.getId(aq_inner(source_object)),
+                                 from_attribute=attribute_name)
+                            ):
+        obj = intids.queryObject(rel.from_id)
+        if obj is not None and checkPermission('zope2.View', obj):
+            result.append(obj)
+    return result
+
 
 class IAttractions(form.Schema, IImageScaleTraversable):
     """
@@ -48,16 +74,19 @@ class IAttractions(form.Schema, IImageScaleTraversable):
         required=False,
     )
 
+    dexteritytextindexer.searchable('introduction')
     introduction = RichText(
         title=_(u'Introduction'),
         required=True,
     )
 
+    dexteritytextindexer.searchable('location')
     location = schema.TextLine(
         title=_(u'Location'),
         required=False,
     )
 
+    dexteritytextindexer.searchable('address')
     address = schema.TextLine(
         title=_(u'Address'),
         required=False,
@@ -134,3 +163,23 @@ class SampleView(grok.View):
     grok.name('view')
 
     # Add view methods here
+
+    def findBackReferences(self, portal_type):
+        backReferences = back_references(self.context, 'relatedAttractions')
+        resultList = []
+        for item in backReferences:
+            if item.portal_type == portal_type:
+                resultList.append(item)
+        return resultList
+
+
+@grok.subscribe(IAttractions, IObjectAddedEvent)
+def notifyUser(item, event):
+    item.exclude_from_nav = True
+    item.reindexObject()
+
+
+@indexer(IAttractions)
+def cityCode_indexer(obj):
+     return obj.cityName.to_object.cityCode
+grok.global_adapter(cityCode_indexer, name='cityCode')

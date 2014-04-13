@@ -29,6 +29,31 @@ regionList = SimpleVocabulary(
      SimpleTerm(value=u'OutlyingIslands', title=_(u'OutlyingIslands')),]
     )
 
+cityCodeList = SimpleVocabulary(
+    [SimpleTerm(value=u'NewTaipei', title=_(u'New Taipei City')),
+     SimpleTerm(value=u'Keelung', title=_(u'Keelung City')),
+     SimpleTerm(value=u'Taipei', title=_(u'Taipei City')),
+     SimpleTerm(value=u'Taoyuan', title=_(u'Taoyuan City')),
+     SimpleTerm(value=u'HsinchuCounty', title=_(u'Hsinchu County')),
+     SimpleTerm(value=u'HsinchuCity', title=_(u'Hsinchu City')),
+     SimpleTerm(value=u'Miaoli', title=_(u'Miaoli County')),
+     SimpleTerm(value=u'Taichung', title=_(u'Taichung City')),
+     SimpleTerm(value=u'Changhua', title=_(u'Changhua County')),
+     SimpleTerm(value=u'Nantou', title=_(u'Nantou County')),
+     SimpleTerm(value=u'Yunlin', title=_(u'Yunlin County')),
+     SimpleTerm(value=u'ChiayiCity', title=_(u'Chiayi City')),
+     SimpleTerm(value=u'ChiayiCounty', title=_(u'Chiayi County')),
+     SimpleTerm(value=u'Tainan', title=_(u'Tainan City')),
+     SimpleTerm(value=u'Kaohsiung', title=_(u'Kaohsiung City')),
+     SimpleTerm(value=u'Pingtung', title=_(u'Pingtung County')),
+     SimpleTerm(value=u'Yilan', title=_(u'Yilan County')),
+     SimpleTerm(value=u'Hualien', title=_(u'Hualien County')),
+     SimpleTerm(value=u'Taitung', title=_(u'Taitung County')),
+     SimpleTerm(value=u'Penghu', title=_(u'Penghu County')),
+     SimpleTerm(value=u'Kinmen', title=_(u'Kinmen County')),
+     SimpleTerm(value=u'Lienchiang', title=_(u'Lienchiang County')),]
+    )
+
 
 class ICity(form.Schema, IImageScaleTraversable):
     """
@@ -39,6 +64,13 @@ class ICity(form.Schema, IImageScaleTraversable):
             vocabulary=regionList,
             required=True,
         )
+
+    cityCode = schema.Choice(
+            title=_(u"City Code"),
+            vocabulary=cityCodeList,
+            required=True,
+        )
+
 
 
 class City(Container):
@@ -52,6 +84,12 @@ class SampleView(grok.View):
     grok.require('zope2.View')
 
     # grok.name('view')
+
+
+@indexer(ICity)
+def cityCode_indexer(obj):
+     return obj.cityCode
+grok.global_adapter(cityCode_indexer, name='cityCode')
 
 
 @indexer(ICity)
