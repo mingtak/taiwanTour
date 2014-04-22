@@ -11,7 +11,7 @@
 <metal:main fill-slot="content-core">
 
 <!-- Top Slide Begin -->
-        <section class="sliderwrapper clearfix" id="plone-home-slide">
+        <section class="sliderwrapper clearfix plone-homepage" id="plone-home-slide">
             <div class="tp-banner-container">
                 <div class="tp-banner" >
                     <ul tal:define="catalog python:context.portal_catalog;
@@ -405,11 +405,32 @@ in tempus urna rhoncus faucibus. Vestibulum hendrerit diam nunc, in tempus urna 
                   </div><!-- end row -->   
                 </div><!-- end col-lg-6 -->
 
-                <!-- google ad -->
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                  <img width="336px" alt="" src="http://www.taiwan-tour.tw/++theme++twtour.theme/demos/08_about.png" data-effect="slide-right" style="transition: all 0.7s ease-in-out 0s;">
-                  <p></p>
-                  <img width="336px" alt="" src="http://www.taiwan-tour.tw/++theme++twtour.theme/demos/08_about.png" data-effect="slide-right" style="transition: all 0.7s ease-in-out 0s;">
+
+<!-- Google ADSense Begin -->
+<div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 336X280TwTour -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-9621066722313042"
+     data-ad-slot="3910699872"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br/><br/>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 336X280TwTour -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-9621066722313042"
+     data-ad-slot="3910699872"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<!-- Google ADSense End -->
+
                 </div><!-- end col-lg-6 -->
               </div><!-- end row -->
             </div><!-- end container -->
@@ -448,9 +469,9 @@ in tempus urna rhoncus faucibus. Vestibulum hendrerit diam nunc, in tempus urna 
 
             <div class="masonry_wrapper clearfix">
 <tal:attractionsList define="catalog python:context.portal_catalog;
-                             brain python:catalog(portal_type='twtour.content.attractions', sort_on='UID')[:20];
+                             brain python:catalog(portal_type='twtour.content.attractions')[:];
                              tempVar python:modules['random'].shuffle(brain)"
-                     repeat="item brain">
+                     repeat="item python:brain[:20]">
                 <div tal:attributes="class python:'item item-h2 item-w1 %s' % item.getObject().cityName.to_object.region">
                     <div class="media_element ImageWrapper boxes_img">
                         <a tal:attributes="href python:item.getObject().absolute_url()">
@@ -464,12 +485,6 @@ in tempus urna rhoncus faucibus. Vestibulum hendrerit diam nunc, in tempus urna 
                         </a>
 </tal:getRegion>
                         <div class="Buttons StyleSc">
-<!--                            <span class="WhiteRounded">
-                              <a data-placement="bottom" data-toggle="tooltip" data-original-title="View details" title=""
-                                 tal:attributes="href python:item.getObject().absolute_url()"><i class="fa fa-link"></i>
-                              </a>
-                            </span>
--->
                         </div> <!-- Buttons -->
                         <div class="StyleBe">
                           <a tal:attributes="href python:item.getObject().absolute_url()">
