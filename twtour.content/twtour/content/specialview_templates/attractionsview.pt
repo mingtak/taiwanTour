@@ -49,7 +49,55 @@
 <div class="tab-content" id="myTabContent">
 
 <div class="tab-pane fade in active" id="taiwan-map">
-  <img alt="" src="www.taiwan-tour.tw/zh-tw/51764ed676ee9304/images/taiwan_map_zh_tw.png/@@images/image.png" usemap="#taiwan" />
+<tal:totalAttractions define="catalog python:context.portal_catalog;
+                              start python:int(getattr(context.REQUEST, 'start', 0));
+                              end python:start + 10;
+                              brainTotal python:catalog(portal_type='twtour.content.attractions',
+                                                                     sort_on='sortable_title');
+                              brain python:brainTotal[start:end]">
+
+<h2 i18n:translate="">All Attractions</h2>
+
+
+<table class='table table-hover'>
+  <tbody>
+    <tr tal:repeat="item brain">
+      <td width='15%' class="recent_posts_widget">
+        <a tal:attributes="href item/getURL">
+          <img width="100%" 
+               tal:attributes="src python:'%s/@@download/headImage/%s' % (item.getObject().absolute_url(),
+                                                                          item.getObject().headImage.filename)" />
+        </a>
+      </td>
+      <td>
+        <a tal:attributes="href item/getURL">
+          <strong tal:content="item/Title"></strong>
+        </a><br/><br />
+        <span tal:content="item/Description"></span>
+        <p class="pull-right">
+           <span i18n:translate="">City Name:</span>
+           <span tal:content="python:item.getObject().cityName.to_object.Title()">city name</span>
+        </p>
+      </td>
+    </tr>
+
+
+  <tbody>
+</table>
+
+<tal:button condition="python:True">
+<a tal:attributes="href python:'?start=%s' % (start-10)">
+<button tal:condition="python:True if start > 0 else False"
+        class="btn btn-default btn-rounded" type="button" i18n:translate="">Previous Page</button>
+</a>
+
+<a tal:attributes="href string:?start=${end}">
+  <button tal:condition="python:True if len(brainTotal) >= end else False"
+          class="btn btn-default btn-rounded" type="button" i18n:translate="">Next Page</button>
+</a>
+</tal:button>
+
+</tal:totalAttractions>
 </div>
 
 </div>
