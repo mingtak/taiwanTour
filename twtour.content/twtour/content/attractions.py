@@ -31,6 +31,7 @@ from zc.relation.interfaces import ICatalog
 
 from collective import dexteritytextindexer
 from plone.indexer import indexer
+from random import choice
 import logging
 
 logger = logging.getLogger("attractions.py")
@@ -97,57 +98,23 @@ class IAttractions(form.Schema, IImageScaleTraversable):
         required=False,
     )
 
-    headImage = NamedBlobImage(
-        title=_(u'head Image'),
+    leadImageLink = schema.TextLine(
+        title=_(u'Lead Image Link'),
+        description=_(u'using in homepage and content, width:height=3:2'),
         required=True,
     )
 
-    image1 = NamedBlobImage(
-        title=_(u'Image1'),
-        required=False,
-    )
-
-    image2 = NamedBlobImage(
-        title=_(u'Image2'),
-        required=False,
-    )
-
-    image3 = NamedBlobImage(
-        title=_(u'Image3'),
-        required=False,
-    )
-
-    image4 = NamedBlobImage(
-        title=_(u'Image4'),
-        required=False,
-    )
-
-    image5 = NamedBlobImage(
-        title=_(u'Image5'),
-        required=False,
-    )
-
-    copyrightMark = schema.Bool(
-        title=_(u'copyright mark'),
-        description=_(u'If image copyright OK, please checked the box'),
+    imageLinkList = schema.Text(
+        title=_(u'Image Link List'),
+        description=_(u'using in gallery'),
         required=True,
     )
 
-#validator, 同性質的可以綁在一起共用同一個validator
-@form.validator(field=IAttractions['headImage'])
-@form.validator(field=IAttractions['image1'])
-@form.validator(field=IAttractions['image2'])
-@form.validator(field=IAttractions['image3'])
-@form.validator(field=IAttractions['image4'])
-def validateImage(image):
-    if not hasattr(image, 'size'):
-        return
-    if image._width > 500:
-        raise Invalid(_(u'Image width over 500px'))
-    if image._height > 500:
-        raise Invalid(_(u'Image height over 500px'))
-    if image.size > 512000:
-        raise Invalid(_(u'Image size over 512KB'))
+    sourcesOfArticles = schema.TextLine(
+        title=_(u'Sources of articles'),
+        description=_(u'Sources of articles'),
+        required=True,
+    )
 
 
 class Attractions(Container):
@@ -174,8 +141,17 @@ class SampleView(grok.View):
 
 
 @grok.subscribe(IAttractions, IObjectAddedEvent)
-def notifyUser(item, event):
+def initialItem(item, event):
     item.exclude_from_nav = True
+    subject = list(item.Subject())
+    subject.append(item.Title())
+    if item.location is None:
+        subject.append(choice(['Taiwan Travel', 'Taiwan Tour', 'Formosa', 'Backpacker']))
+    else:
+        subject.append(item.location)
+    subject.append(item.cityName.to_object.cityCode)
+    subject.append(item.cityName.to_object.Title())
+    item.setSubject(subject)
     item.reindexObject()
 
 
@@ -183,3 +159,5 @@ def notifyUser(item, event):
 def cityCode_indexer(obj):
      return obj.cityName.to_object.cityCode
 grok.global_adapter(cityCode_indexer, name='cityCode')
+
+

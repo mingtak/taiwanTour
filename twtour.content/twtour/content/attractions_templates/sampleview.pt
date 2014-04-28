@@ -51,14 +51,20 @@
                                 <li><a href="#related-tab" data-toggle="tab" i18n:translate="">related Items</a></li>
                               </ul>
                               <div id="myTabContent" class="tab-content">
-                                <div class="tab-pane fade in active" id="description-tab"
-                                     tal:define="headImage nocall:context/headImage">
+                                <div class="tab-pane fade in active" id="description-tab">
                                   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                    <img tal:attributes="src string:${context/absolute_url}/@@download/headImage/${headImage/filename}"
-                                         width="100%"/>
+                                    <tal:checkIndexLen condition="python:len(context.leadImageLink.split(',,,')) == 2">
+                                      <img tal:attributes="src python:context.leadImageLink.split(',,,')[1]"
+                                           width="100%"/>
+                                      <p class="imageDescription" tal:content="python:context.leadImageLink.split(',,,')[0]"></p>
+                                    </tal:checkIndexLen>
                                   </div>
                                   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
                                        tal:content="structure context/introduction/raw"></div>
+                                  <p class="pull-right">
+                                    <strong i18n:translate="">Source of Article:</strong>
+                                    <span tal:content="context/sourcesOfArticles"></span>
+                                  </p><br/>
                                 </div>
                                 <div class="tab-pane fade" id="profile-tab">
 
@@ -104,120 +110,39 @@
 
 <table class="table">
   <tbody>
-    <tr>
-      <td>
-                        <div tal:define="image nocall:context/headImage"
-                             tal:condition="nocall:image">
-                        <div class="portfolio-columns">
-                            <div class="media_element ImageWrapper boxes_img">
-                                <a data-placement="bottom"
-                                   data-toggle="tooltip"
-                                   data-original-title="View item"
-                                   title=""
-                                   rel="prettyPhoto"
-                                   tal:attributes="href string:${context/absolute_url}/@@download/headImage/${image/filename}">
-                                  <img tal:attributes="src string:${context/absolute_url}/@@download/headImage/${image/filename}" alt=""
-                                       width="200px">
-                                </a>
-                            </div><!-- media_element -->
-                        </div><!-- item -->
-                        </div>
 
-      </td>
-      <td>
-                        <div tal:define="image nocall:context/image1"
-                             tal:condition="nocall:image">
-                        <div class="portfolio-columns">
-                            <div class="media_element ImageWrapper boxes_img">
-                                <a data-placement="bottom"
-                                   data-toggle="tooltip"
-                                   data-original-title="View item"
-                                   title=""
-                                   rel="prettyPhoto"
-                                   tal:attributes="href string:${context/absolute_url}/@@download/image1/${image/filename}">
-                                  <img tal:attributes="src string:${context/absolute_url}/@@download/image1/${image/filename}" alt=""
-                                       width="200px">
-                                </a>
-                            </div><!-- media_element -->
-                        </div><!-- item -->
-                        </div>
 
-      </td>
-      <td>
-                        <div tal:define="image nocall:context/image2"
-                             tal:condition="nocall:image">
+
+
+<tal:gallery define="imageList python:context.imageLinkList.split('\n')"
+             repeat="image python:imageList">
+  <tal:number define="index repeat/image/index">
+    <tr tal:condition="python:True if index % 3 == 0 else False">
+      <td tal:repeat="itemUrl python:imageList[index:(index+3)]">
+        <tal:checkIndexLen condition="python:len(itemUrl.split(',,,')) == 2">
                         <div class="portfolio-columns">
-                            <div class="media_element ImageWrapper boxes_img">
+                            <div class="media_element ImageWrapper boxes_img imageDescription">
                                 <a data-placement="bottom"
                                    data-toggle="tooltip"
                                    data-original-title="View item"
                                    title=""
                                    rel="prettyPhoto"
-                                   tal:attributes="href string:${context/absolute_url}/@@download/image2/${image/filename}">
-                                  <img tal:attributes="src string:${context/absolute_url}/@@download/image2/${image/filename}" alt=""
-                                       width="200px">
+                                   tal:attributes="href python:itemUrl.split(',,,')[1]">
+                                  <img tal:attributes="src python:itemUrl.split(',,,')[1]" alt=""
+                                       width="200px" class="center-block">
                                 </a>
+                                <p tal:content="python:itemUrl.split(',,,')[0]">description</p>
                             </div><!-- media_element -->
                         </div><!-- item -->
-                        </div>
+        </tal:checkIndexLen>
       </td>
     </tr>
-    <tr>
-      <td>
-                        <div tal:define="image nocall:context/image3"
-                             tal:condition="nocall:image">
-                        <div class="portfolio-columns">
-                            <div class="media_element ImageWrapper boxes_img">
-                                <a data-placement="bottom"
-                                   data-toggle="tooltip"
-                                   data-original-title="View item"
-                                   title=""
-                                   rel="prettyPhoto"
-                                   tal:attributes="href string:${context/absolute_url}/@@download/image3/${image/filename}">
-                                  <img tal:attributes="src string:${context/absolute_url}/@@download/image3/${image/filename}" alt=""
-                                       width="200px">
-                                </a>
-                            </div><!-- media_element -->
-                        </div><!-- item -->
-                        </div>
-      </td>
-      <td>
-                        <div tal:define="image nocall:context/image4"
-                             tal:condition="nocall:image">
-                        <div class="portfolio-columns">
-                            <div class="media_element ImageWrapper boxes_img">
-                                <a data-placement="bottom"
-                                   data-toggle="tooltip"
-                                   data-original-title="View item"
-                                   title=""
-                                   rel="prettyPhoto"
-                                   tal:attributes="href string:${context/absolute_url}/@@download/image4/${image/filename}">
-                                  <img tal:attributes="src string:${context/absolute_url}/@@download/image4/${image/filename}" alt=""
-                                       width="200px">
-                                </a>
-                            </div><!-- media_element -->
-                        </div><!-- item -->
-                        </div>
-      </td>
-      <td>
-                        <div tal:define="image nocall:context/image5"
-                             tal:condition="nocall:image">
-                        <div class="portfolio-columns">
-                            <div class="media_element ImageWrapper boxes_img">
-                                <a data-placement="bottom"
-                                   data-toggle="tooltip"
-                                   data-original-title="View item"
-                                   title=""
-                                   rel="prettyPhoto"
-                                   tal:attributes="href string:${context/absolute_url}/@@download/image5/${image/filename}">
-                                  <img tal:attributes="src string:${context/absolute_url}/@@download/image5/${image/filename}" alt=""
-                                       width="200px">
-                                </a>
-                            </div><!-- media_element -->
-                        </div><!-- item -->
-                        </div>
-      </td>
-    </tr>
+  </tal:number>
+
+</tal:gallery>
+
+
+
   </tbody>
 </table>
                                 </div>

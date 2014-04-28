@@ -33,8 +33,8 @@
     <tr tal:repeat="item brain">
       <td width='15%' class="recent_posts_widget">
         <a tal:attributes="href item/getURL">
-          <img tal:attributes="src python:'%s/@@download/headImage/%s' % (item.getObject().absolute_url(),
-                                                                          item.getObject().headImage.filename)">
+          <img width="100%"
+               tal:attributes="src python:item.getObject().leadImageLink" />
         </a>
       </td>
       <td>

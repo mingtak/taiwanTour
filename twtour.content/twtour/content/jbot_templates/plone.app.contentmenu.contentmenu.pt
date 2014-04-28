@@ -1,0 +1,109 @@
+                                <div class="panel-group" id="accordion"
+                                 xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+                                 xmlns:tal="http://xml.zope.org/namespaces/tal"
+                                 tal:define="menu view/menu"
+                                 tal:condition="view/available"
+                                 i18n:domain="plone">
+
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h6 class="panel-title">
+                                              <a class="accordion-toggle"
+                                                 data-toggle="collapse"
+                                                 data-parent="#accordion"
+                                                 href="#collapseOne" i18n:translate="">Content Maneger</a>
+                                            </h6>
+                                        </div><!-- end panel heading -->
+                                        <div id="collapseOne" class="panel-collapse collapse">
+                                            <div class="panel-body">
+
+
+    <tal:li repeat="menuItem menu">
+
+        <dl class="actionMenu deactivated"
+            tal:attributes="id menuItem/extra/id"
+            tal:define="submenu menuItem/submenu">
+          <dt tal:define="state_class menuItem/extra/class | nothing;
+                          state_class python:state_class and state_class or ''"
+              tal:attributes="class string:actionMenuHeader label-${state_class}">
+            <a href="#"
+               tal:omit-tag="not:menuItem/action"
+               tal:attributes="href menuItem/action;
+                               title menuItem/description"
+               i18n:attributes="title;">
+               <span tal:omit-tag="menuItem/action"
+                     class="noMenuAction">
+                  <span tal:content="menuItem/title"
+                        i18n:translate="" style="color:grey;">
+                      Title
+                  </span>
+                  <span tal:condition="menuItem/extra/stateTitle | nothing"
+                        tal:attributes="class menuItem/extra/class | nothing;
+                                        style python:'color:%s' % ('green' if menuItem['extra']['stateTitle'] == 'Published' else 'red')"
+                        tal:content="menuItem/extra/stateTitle"
+                        i18n:translate="">
+                      State title
+                  </span>
+                  <span class="arrowDownAlternative" style="color:green;"
+                      tal:condition="not:menuItem/extra/hideChildren | not:submenu | nothing">&#9660;</span>
+               </span>
+            </a>
+          </dt>
+          <dd class="actionMenuContent"
+              tal:condition="not:menuItem/extra/hideChildren | not:submenu | nothing">
+            <ul>
+                <tal:block repeat="subMenuItem submenu">
+                  <li tal:attributes="class subMenuItem/extra/separator">
+                    <a href="#"
+                       tal:condition="subMenuItem/action"
+                       tal:attributes="href subMenuItem/action;
+                                       title subMenuItem/description;
+                                       id subMenuItem/extra/id | nothing;
+                                       class subMenuItem/extra/class | nothing"
+                       i18n:attributes="title">
+                        <img width="16"
+                             height="16"
+                             alt=""
+                             tal:condition="subMenuItem/icon"
+                             tal:attributes="src subMenuItem/icon;
+                                             title subMenuItem/description;
+                                             width subMenuItem/width|string:16;
+                                             height subMenuItem/height|string:16;"
+                             i18n:attributes="alt;"/>
+                        <span tal:content="structure subMenuItem/title"
+                              i18n:translate=""
+                              class="subMenuTitle">
+                            Title
+                        </span>
+                    </a>
+                    <div tal:condition="not:subMenuItem/action"
+                         tal:attributes="id subMenuItem/extra/id | nothing;
+                                         class subMenuItem/extra/class | nothing">
+                        <img width="16"
+                             height="16"
+                             alt=""
+                             tal:condition="subMenuItem/icon"
+                             tal:attributes="src subMenuItem/icon;
+                                             title subMenuItem/description"
+                             i18n:attributes="alt;"/>
+                        <span tal:content="structure subMenuItem/title"
+                              i18n:translate=""
+                              class="subMenuTitle">
+                            Title
+                        </span>
+                    </div>
+                  </li>
+                </tal:block>
+            </ul>
+          </dd>
+        </dl>
+
+    </tal:li>
+
+
+                                            </div>
+                                        </div>
+                                    </div><!-- end panel -->
+
+                                </div><!-- panel-group -->
+<hr>

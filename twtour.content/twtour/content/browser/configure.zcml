@@ -16,6 +16,19 @@
     permission="zope2.View"
     class=".attractionssearch.AttractionsSearch" />
 
+  <browser:page
+    for="*"
+    name="nearbysearch"
+    permission="zope2.View"
+    class=".nearbysearch.NearbySearch" />
+
+  <browser:page
+    for="*"
+    name="sitemap.xml"
+    permission="zope2.View"
+    class=".sitemap.SiteMap" />
+
+
 <!--
 測試用，平常不開
   <browser:page

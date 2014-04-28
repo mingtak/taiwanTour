@@ -332,18 +332,20 @@ in tempus urna rhoncus faucibus. Vestibulum hendrerit diam nunc, in tempus urna 
 -->
                     </div>
 <tal:upcomingEvents define="catalog python:context.portal_catalog;
-                            brain python:catalog(portal_type='twtour.content.tourevent')[:4]"
+                            brain python:catalog(portal_type='twtour.content.tourevent',
+                                                 sort_on='created', sort_order='reverse')[:4]"
                     repeat="item brain">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     	<div class="testimonial_wrap" tal:define="oddOrEven repeat/item/number">
                             <div class="testimonial_details" tal:attributes="data-effect python:'slide-left' if oddOrEven%2 == 1 else 'slide-right'">
-                            	<img class="img-circle alignleft" alt=""
-                                     tal:attributes="src python:'%s/@@download/headImage/%s' % (item.getObject().absolute_url(),
-                                                                                                item.getObject().headImage.filename)">
+                                <a tal:attributes="href item/getURL">
+                                  <img class="img-circle alignleft" alt=""
+                                       tal:attributes="src python:item.getObject().leadImageLink" />
+                                </a>
                            		<p tal:content='item/Description'></p>
                                 <div class="testimonial_meta clearfix">
                                     <div class="pull-left">
-                                        <p tal:content="python:'%s - %s' % (str(item.getObject().startDate).split()[0], str(item.getObject().endDate).split()[0])">date region</p>
+                                        <p tal:content="python:'%s - %s' % (str(item.getObject().startDate.strftime('%Y/%m/%d')), str(item.getObject().endDate.strftime('%Y/%m/%d')))">date region</p>
                                     </div>	
                                     <div class="pull-right">
                                         <div class="rating text-center">
@@ -368,7 +370,7 @@ in tempus urna rhoncus faucibus. Vestibulum hendrerit diam nunc, in tempus urna 
 <section class="whitewrapper bordertop clearfix" id="plone-section2">
         	<div class="container">
             	<div class="row">        
-                  <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12" data-effect="slide-left">
+                  <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
                     <div class="title1">
                       <h2 i18n:translate="">News</h2>
                       <hr>
@@ -383,14 +385,14 @@ in tempus urna rhoncus faucibus. Vestibulum hendrerit diam nunc, in tempus urna 
                   <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                       <tal:newsItemList define="catalog python:context.portal_catalog;
-                                                brain python:catalog(portal_type='twtour.content.tournews')[:5]">
+                                                brain python:catalog(portal_type='twtour.content.tournews',
+                                                                     sort_on='created', sort_order='reverse')[:5]">
                         <ul class="recent_posts_widget">
-                          <li tal:repeat="item brain">
+                          <li tal:repeat="item brain" data-effect="slide-left">
                             <a tal:attributes="href item/getURL">
-                            <img tal:attributes="src python:'%s/@@download/headImage/%s' % (item.getObject().absolute_url(),
-                                                                                            item.getObject().headImage.filename);
-                                                 title item/Description;
-                                                 alt item/Title">
+                              <img tal:attributes="src python:item.getObject().leadImageLink;
+                                                   title item/Description;
+                                                   alt item/Title">
                             <strong tal:content="item/Title"></strong>
                             </a><br/>
                             <span tal:content="item/Description"></span>
@@ -475,8 +477,9 @@ in tempus urna rhoncus faucibus. Vestibulum hendrerit diam nunc, in tempus urna 
                 <div tal:attributes="class python:'item item-h2 item-w1 %s' % item.getObject().cityName.to_object.region">
                     <div class="media_element ImageWrapper boxes_img">
                         <a tal:attributes="href python:item.getObject().absolute_url()">
-                          <img tal:attributes="src python:'%s/@@download/headImage/%s' % (item.getObject().absolute_url(),
-                                                                                          item.getObject().headImage.filename)">
+                          <tal:checkIndexLen condition="python:len(item.getObject().leadImageLink.split(',,,')) == 2">
+                            <img tal:attributes="src python:item.getObject().leadImageLink.split(',,,')[1]" />
+                          </tal:checkIndexLen>
                         </a>
 <tal:getRegion define="region python:str(item.getObject().cityName.to_object.region);
                        color python:'orange' if region == 'Northern' else 'yellow' if region == 'Central' else 'blue' if region == 'Southern' else 'purple' if region == 'Eastern' else 'gery'">

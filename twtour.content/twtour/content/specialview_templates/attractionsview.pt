@@ -53,7 +53,7 @@
                               start python:int(getattr(context.REQUEST, 'start', 0));
                               end python:start + 10;
                               brainTotal python:catalog(portal_type='twtour.content.attractions',
-                                                                     sort_on='sortable_title');
+                                                                     sort_on='UID');
                               brain python:brainTotal[start:end]">
 
 <h2 i18n:translate="">All Attractions</h2>
@@ -64,9 +64,10 @@
     <tr tal:repeat="item brain">
       <td width='15%' class="recent_posts_widget">
         <a tal:attributes="href item/getURL">
-          <img width="100%" 
-               tal:attributes="src python:'%s/@@download/headImage/%s' % (item.getObject().absolute_url(),
-                                                                          item.getObject().headImage.filename)" />
+          <tal:checkIndexLen condition="python:len(item.getObject().leadImageLink.split(',,,')) == 2">
+            <img width="100%" 
+                 tal:attributes="src python:item.getObject().leadImageLink.split(',,,')[1]" />
+          </tal:checkIndexLen>
         </a>
       </td>
       <td>

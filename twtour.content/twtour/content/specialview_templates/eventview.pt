@@ -26,7 +26,7 @@
 <tal:brain define="catalog python:context.portal_catalog;
                    start python:int(getattr(context.REQUEST, 'start', 0));
                    brainTotal python:catalog({'portal_type':'twtour.content.tourevent', 'review_state':'published'},
-                                             sort_on='modified', sort_order='descending');
+                                             sort_on='created', sort_order='descending');
                    brain python:brainTotal[start:start+10]">
 
 <table class="table">
@@ -34,8 +34,8 @@
     <tr tal:repeat="item brain">
       <td width='15%' class="recent_posts_widget">
         <a tal:attributes="href item/getURL">
-          <img tal:attributes="src python:'%s/@@download/headImage/%s' % (item.getObject().absolute_url(),
-                                                                          item.getObject().headImage.filename)">
+          <img width="100%"
+               tal:attributes="src python:item.getObject().leadImageLink" />
         </a>
       </td>
       <td>
@@ -45,7 +45,7 @@
         <span tal:content="item/Description"></span>
         <p class="pull-right">
            <span i18n:translate="">Period:</span>
-           <span tal:content="python:'%s - %s' % (str(item.getObject().startDate).split()[0], str(item.getObject().endDate).split()[0])">2014-03-22</span>
+           <span tal:content="python:'%s - %s' % (str(item.getObject().startDate.strftime('%Y/%m/%d')), str(item.getObject().endDate.strftime('%Y/%m/%d')))">2014-03-22</span>
         </p>
       </td>
     </tr>

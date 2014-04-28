@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rules
+    xmlns="http://namespaces.plone.org/diazo"
+    xmlns:css="http://namespaces.plone.org/diazo/css"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <!-- 全域設定 -->
+  <notheme css:if-content="body.userrole-manager" />
+  <notheme css:if-content="#form" />
+  <rules css:if-not-content="body.userrole-manager">
+    <drop css:content="#edit-bar" css:if-content="body.template-edit" />
+  </rules>
+  <replace css:theme="html head title" css:content="html head title" />
+  <merge attributes="class" css:theme="body" css:content="body" />
+  <before css:theme-children="html head" css:content="head meta" />
+  <after css:theme-children="html head" css:content="head script" />
+  <after css:theme-children="html body" css:content=".plone-site-script" />
+
+  <!-- logo -->
+  <replace css:theme="div.logo a" css:content="a#portal-logo" />
+
+  <!-- nav -->
+  <replace css:theme-children="div#defaultmenu ul.nav.navbar-nav.plone-nav"
+           css:content-children="ul#portal-globalnav" />
+
+  <!-- language selector -->
+  <replace css:theme-children="div.callus.clearfix ul"
+           css:content-children="ul#portal-languageselector" />
+
+  <!-- plone-dmsearch input box -->
+  <replace css:theme-children="#dmsearch" css:content-children="#plone-dmsearch" />
+
+  <!-- footer -->
+  <replace css:theme="div#plone-footer p"
+           css:content="div#portal-footer" />
+
+  <!-- plone-home-slide -->
+  <replace css:theme="#plone-home-slide"
+           css:content="#plone-home-slide" />
+
+  <!-- plone-breadcrumbs -->
+  <replace css:theme="#plone-breadcrumbs"
+           css:content="#plone-breadcrumbs" />
+  <drop css:theme="#plone-breadcrumbs" css:if-content="#plone-home-slide" />
+
+  <!-- plone-content -->
+  <before css:theme-children="#plone-content .container .row .half-width.clearfix"
+          css:content-children="#plone-content .container .row .half-width.clearfix" />
+
+  <!-- plone-secript -->
+  <replace css:theme="#plone-script" css:content-children="#plone-script" />
+
+  <!-- portal-column-two / sidebar-->
+  <replace css:theme-children="#sidebar" css:content-children="#portal-column-two" />
+
+  <!-- portal-column-two / edit-bar -->
+  <before css:theme-children="#sidebar" css:content="#edit-bar" />
+
+
+  <!-- plone-section1, home page, tourevent -->
+  <replace css:theme="#plone-section1" css:content="#plone-section1" />
+
+  <!-- plone-section1, login_form -->
+  <after css:theme="#plone-section1" css:content="#login_form" />
+
+  <!-- plone-section2, home page, tournews -->
+  <replace css:theme="#plone-section2" css:content="#plone-section2" />
+
+  <!-- plone-section3, home page, attractions -->
+  <replace css:theme="#plone-section3" css:content="#plone-section3" />
+
+
+  <!-- drop .animationload & #portal-column-two -->
+  <drop css:theme=".animationload" css:if-not-content="#plone-home-slide" />
+  <drop css:theme="#plone-content" css:if-content="#plone-home-slide" />
+
+  <!-- plone-content, 404 not found -->
+  <replace css:theme-children="#plone-content .container .row .half-width.clearfix"
+           css:content="#content" css:if-content="body.template-default_error_message" />
+
+  <!-- plone-content, template-seo-context-properties -->
+  <replace css:theme-children="#plone-content .container .row .half-width.clearfix"
+           css:content="#content" css:if-content="body.template-seo-context-properties" />
+
+  <rules> <!-- if-path="/en-us"> -->
+    <theme href="home6.html" css:if-content="#visual-portal-wrapper" />
+  </rules>
+
+</rules>

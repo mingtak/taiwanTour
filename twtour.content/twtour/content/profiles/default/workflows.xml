@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<object name="portal_workflow" meta_type="Plone Workflow Tool">
+ <object name="twtour_content_workflow" meta_type="Workflow"/>
+ <bindings>
+  <type type_id="twtour.content.attractions">
+   <bound-workflow workflow_id="twtour_content_workflow"/>
+  </type>
+  <type type_id="twtour.content.tournews">
+   <bound-workflow workflow_id="twtour_content_workflow"/>
+  </type>
+  <type type_id="twtour.content.tourevent">
+   <bound-workflow workflow_id="twtour_content_workflow"/>
+  </type>
+ </bindings>
+</object>

@@ -18,6 +18,13 @@ msgstr ""
 "Domain: plone\n"
 "X-Is-Fallback-For: zh\n"
 
+############## 新增Begin
+
+msgid "Content Maneger"
+msgstr "內容管理"
+
+############## 新增End
+
 #: plone.locking/plone/locking/browser/locking.py:140
 msgid "$d day and $h hours"
 msgstr "$d 天 $h 時"

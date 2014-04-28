@@ -19,13 +19,14 @@
     <tr>
       <td width="15%">
         <a tal:attributes="href item/getURL">
-          <img class="img-circle alignleft" alt=""
-               tal:attributes="src python:'%s/@@download/headImage/%s' % (item.getURL(),
-                                                                          item.getObject().headImage.filename)">
+          <tal:checkIndexLen condition="python:len(item.getObject().leadImageLink.split(',,,')) == 2">
+            <img width="100%" class="img-circle alignleft" alt=""
+                 tal:attributes="src python:item.getObject().leadImageLink.split(',,,')[1]" />
+          </tal:checkIndexLen>
         </a>
       </td>
       <td width="85%">
-        <a tal:attributes="href item/getURL"><h3 tal:content="item/Title"></h3></a>
+        <a tal:attributes="href item/getURL"><h3 class="getcontentlist" tal:content="item/Title"></h3></a>
         <p tal:content="item/Description"></p>
       </td>
     </tr>

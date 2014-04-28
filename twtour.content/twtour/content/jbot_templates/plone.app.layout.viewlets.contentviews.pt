@@ -1,0 +1,52 @@
+                                <div class="panel-group" id="accordion"
+                                 xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+                                 xmlns:tal="http://xml.zope.org/namespaces/tal"
+                                 i18n:domain="plone">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h6 class="panel-title">
+                                              <a class="accordion-toggle"
+                                                 data-toggle="collapse"
+                                                 data-parent="#accordion"
+                                                 href="#collapseTwo" i18n:translate="heading_views">Views</a>
+                                            </h6>
+                                        </div><!-- end panel heading -->
+                                        <div id="collapseTwo" class="panel-collapse collapse">
+                                            <div class="panel-body">
+
+
+
+
+
+<div tal:omit-tag=""
+     tal:define="ploneview context/@@plone;"
+     tal:condition="ploneview/showEditableBorder">
+
+    <tal:block define="view_actions view/prepareObjectTabs;">
+
+        <dl class="contentViews"
+            id="content-views"
+            i18n:domain="plone">
+
+            <tal:views repeat="action view_actions">
+              <dd tal:define="selected action/selected|nothing;"
+                  tal:attributes="id string:contentview-${action/id};
+                                  class python:selected and 'selected' or 'plain'">
+                <a href=""
+                   tal:attributes="href action/url;
+                                   target action/link_target|nothing;">
+                  <i class="fa fa-map-marker"></i> <span tal:content="action/title" i18n:translate="">View name</span>
+                </a>
+              </dd>
+            </tal:views>
+
+        </dl>
+
+    </tal:block>
+</div>
+
+                                            </div>
+                                        </div>
+                                    </div><!-- end panel -->
+
+                                </div><!-- panel-group -->

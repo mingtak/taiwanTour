@@ -21,6 +21,7 @@ from zope.lifecycleevent.interfaces import IObjectAddedEvent
 from twtour.content.attractions import IAttractions
 from twtour.content import MessageFactory as _
 
+from random import choice
 
 # Interface class; used to define content-type schema.
 
@@ -29,7 +30,7 @@ class ITourNews(form.Schema, IImageScaleTraversable):
     Taiwan Tour News Item
     """
 
-    headImage = NamedBlobImage(
+    leadImageLink = schema.TextLine(
         title=_(u'Head image'),
         required=True,
     )
@@ -65,6 +66,12 @@ class SampleView(grok.View):
 
 
 @grok.subscribe(ITourNews, IObjectAddedEvent)
-def notifyUser(item, event):
+def initialItem(item, event):
     item.exclude_from_nav = True
+    subject = list(item.Subject())
+    subject.append(item.Title())
+    subject.append(choice(['Taiwan Travel', 'Taiwan Tour', 'Formosa', 'Backpacker']))
+    for relatedItem in item.relatedAttractions:
+        subject.append(relatedItem.to_object.Title())
+    item.setSubject(subject)
     item.reindexObject()

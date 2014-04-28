@@ -28,9 +28,9 @@
 </div>
 
 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"
-     tal:define="headImage nocall:context/headImage"
-     tal:condition="nocall:headImage">
-    <img tal:attributes="src string:${context/absolute_url}/@@download/headImage/${headImage/filename}"
+     tal:define="leadImage nocall:context/leadImageLink"
+     tal:condition="nocall:leadImage">
+    <img tal:attributes="src leadImage"
          width="100%"/>
 </div>
 <div tal:content="structure context/detail/output">
@@ -47,12 +47,14 @@
     </tr>
     <tr>
       <td i18n:translate="">Period</td>
-      <td tal:content="python:'%s - %s' % (str(context.startDate).split()[0], str(context.endDate).split()[0])"></td>
+      <td tal:content="python:'%s - %s' % (str(context.startDate.strftime('%Y/%m/%d')), str(context.endDate.strftime('%Y/%m/%d')))"></td>
     </tr>
     <tr tal:define="eventWebSite nocall:context/eventWebSite"
         tal:condition="nocall:eventWebSite">
       <td i18n:translate="">Event Website</td>
-      <td tal:content="eventWebSite"></td>
+      <td>
+        <a tal:attributes="href eventWebSite" target="_blank" i18n:translate="">Go to event website (external link)</a>
+      </td>
     </tr>
     <tr tal:define="relatedAttractions nocall:context/relatedAttractions"
         tal:condition="nocall:relatedAttractions">
@@ -65,13 +67,35 @@
     </tr>
   </tbody>
 </table>
-
+<hr>
 
 <div tal:define="eventDM nocall:context/eventDM"
      tal:condition="nocall:eventDM">
-    <img tal:attributes="src string:${context/absolute_url}/@@download/eventDM/${eventDM/filename}"
+    <img tal:attributes="src eventDM"
          width="100%"/>
 </div>
+
+
+<!-- Disqus Begin -->
+<br />
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'twtour'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+<!-- Disqus End -->
+
 
 
 
