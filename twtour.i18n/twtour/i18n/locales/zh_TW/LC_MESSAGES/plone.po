@@ -20,7 +20,7 @@ msgstr ""
 
 ############## 新增Begin
 
-msgid "Content Maneger"
+msgid "Content Manager"
 msgstr "內容管理"
 
 ############## 新增End

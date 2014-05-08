@@ -45,7 +45,7 @@
 
                             <div class="bs-example bs-example-tabs">
                               <ul id="myTab" class="nav nav-tabs">
-                                <li><a href="#description-tab" data-toggle="tab" i18n:translate="">Description</a></li>
+                                <li class="active"><a href="#description-tab" data-toggle="tab" i18n:translate="">Description</a></li>
                                 <li><a href="#profile-tab" data-toggle="tab" i18n:translate="">Profile</a></li>
                                 <li><a href="#gallery-tab" data-toggle="tab" i18n:translate="">Gallery</a></li>
                                 <li><a href="#related-tab" data-toggle="tab" i18n:translate="">related Items</a></li>

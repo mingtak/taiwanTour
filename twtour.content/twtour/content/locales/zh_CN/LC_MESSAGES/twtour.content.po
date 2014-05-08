@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-04-20 15:49+0000\n"
+"POT-Creation-Date: 2014-04-28 16:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,11 +15,11 @@ msgstr ""
 "Domain: DOMAIN\n"
 
 #: ./attractions.py:92
-#: ./attractions_templates/sampleview.pt:81
+#: ./attractions_templates/sampleview.pt:88
 msgid "Address"
 msgstr "地址"
 
-#: ./specialview_templates/homepageview.pt:458
+#: ./specialview_templates/homepageview.pt:460
 msgid "All"
 msgstr "全区"
 
@@ -29,7 +29,7 @@ msgstr "全台景点"
 
 #: ./profiles/default/types/twtour.content.attractions.xml
 #: ./specialview_templates/attractionsview.pt:28
-#: ./specialview_templates/homepageview.pt:448
+#: ./specialview_templates/homepageview.pt:450
 msgid "Attractions"
 msgstr "景点介绍"
 
@@ -38,6 +38,7 @@ msgid "Attractions Search"
 msgstr "搜寻景点"
 
 #: ./browser/template/attractionssearch.pt:21
+#: ./browser/template/nearbysearch.pt:21
 msgid "Attractions Search Result"
 msgstr "搜寻结果"
 
@@ -46,7 +47,7 @@ msgid "Attractions for taiwan tour"
 msgstr "台湾景点介绍"
 
 #: ./city.py:26
-#: ./specialview_templates/homepageview.pt:460
+#: ./specialview_templates/homepageview.pt:462
 msgid "Central"
 msgstr "中部"
 
@@ -66,7 +67,7 @@ msgstr "嘉义县"
 msgid "Cities Infomation"
 msgstr "城市资讯"
 
-#: ./attractions_templates/sampleview.pt:67
+#: ./attractions_templates/sampleview.pt:74
 #: ./profiles/default/types/twtour.content.city.xml
 msgid "City"
 msgstr "城市"
@@ -79,25 +80,26 @@ msgstr "城市代码"
 msgid "City Name"
 msgstr "城市名称"
 
-#: ./browser/template/attractionssearch.pt:49
-#: ./specialview_templates/attractionsview.pt:78
+#: ./browser/template/attractionssearch.pt:50
+#: ./browser/template/nearbysearch.pt:50
+#: ./specialview_templates/attractionsview.pt:79
 msgid "City Name:"
 msgstr "城市名称:"
 
-#: ./attractions_templates/sampleview.pt:71
+#: ./attractions_templates/sampleview.pt:78
 msgid "Contact Information"
-msgstr ""
+msgstr "联络资讯"
 
-#: ./attractions_templates/sampleview.pt:47
+#: ./attractions_templates/sampleview.pt:48
 msgid "Description"
 msgstr "景点介绍"
 
 #: ./city.py:28
-#: ./specialview_templates/homepageview.pt:462
+#: ./specialview_templates/homepageview.pt:464
 msgid "Eastern"
 msgstr "东部"
 
-#: ./tourevent.py:74
+#: ./tourevent.py:76
 msgid "Event DM"
 msgstr "活动型录"
 
@@ -105,29 +107,32 @@ msgstr "活动型录"
 msgid "Event Website"
 msgstr "活动网址"
 
-#: ./tourevent.py:53
-#: ./tournews.py:38
+#: ./tourevent.py:55
+#: ./tournews.py:39
 msgid "Event detail information"
 msgstr "活动详细资讯"
 
-#: ./tourevent.py:48
+#: ./tourevent.py:50
 msgid "Event end date"
 msgstr "活动结束日期"
 
-#: ./tourevent.py:43
+#: ./tourevent.py:45
 msgid "Event start date"
 msgstr "活动开始日期"
 
-#: ./tourevent.py:58
+#: ./tourevent.py:60
 msgid "Event web site URL"
 msgstr "活动网站"
 
-#: ./attractions_templates/sampleview.pt:49
+#: ./attractions_templates/sampleview.pt:50
 msgid "Gallery"
 msgstr "相簿"
 
-#: ./tourevent.py:33
-#: ./tournews.py:33
+#: ./tourevent_templates/sampleview.pt:56
+msgid "Go to event website (external link)"
+msgstr "前往活动网站(外部连结)"
+
+#: ./tournews.py:34
 msgid "Head image"
 msgstr "首图"
 
@@ -143,33 +148,9 @@ msgstr "新竹县"
 msgid "Hualien County"
 msgstr "花莲县"
 
-#: ./attractions.py:133
-msgid "If image copyright OK, please checked the box"
-msgstr "如果图片的版权已确认没问题，请打勾"
-
-#: ./attractions.py:151
-msgid "Image size over 150KB"
-msgstr ""
-
-#: ./attractions.py:107
-msgid "Image1"
-msgstr "影像1"
-
-#: ./attractions.py:112
-msgid "Image2"
-msgstr "影像2"
-
-#: ./attractions.py:117
-msgid "Image3"
-msgstr "影像3"
-
-#: ./attractions.py:122
-msgid "Image4"
-msgstr "影像4"
-
-#: ./attractions.py:127
-msgid "Image5"
-msgstr "影像5"
+#: ./attractions.py:108
+msgid "Image Link List"
+msgstr "图片连结列表"
 
 #: ./attractions.py:80
 msgid "Introduction"
@@ -187,13 +168,21 @@ msgstr "基隆市"
 msgid "Kinmen County"
 msgstr "金门县"
 
+#: ./attractions.py:102
+msgid "Lead Image Link"
+msgstr "首图连结网址"
+
+#: ./tourevent.py:35
+msgid "Lead Image Url"
+msgstr "首图连结网址"
+
 #: ./city.py:54
 msgid "Lienchiang County"
 msgstr "连江县"
 
 #: ./attractions.py:86
-#: ./attractions_templates/sampleview.pt:76
-#: ./tourevent.py:38
+#: ./attractions_templates/sampleview.pt:83
+#: ./tourevent.py:40
 msgid "Location"
 msgstr "地点"
 
@@ -205,36 +194,36 @@ msgstr "苗栗县"
 msgid "Nantou County"
 msgstr "南投县"
 
-#: ./attractions_templates/sampleview.pt:230
+#: ./attractions_templates/sampleview.pt:156
 msgid "Nearby Attractions"
-msgstr ""
+msgstr "附近景点"
 
 #: ./city.py:33
 msgid "New Taipei City"
 msgstr "新北市"
 
-#: ./specialview_templates/homepageview.pt:373
+#: ./specialview_templates/homepageview.pt:375
 #: ./specialview_templates/newsview.pt:21
 msgid "News"
 msgstr "最新消息"
 
-#: ./browser/template/attractionssearch.pt:67
-#: ./browser/template/getcontentlist.pt:38
-#: ./specialview_templates/attractionsview.pt:95
+#: ./browser/template/attractionssearch.pt:68
+#: ./browser/template/getcontentlist.pt:39
+#: ./browser/template/nearbysearch.pt:68
 msgid "Next Page"
 msgstr "下一页"
 
-#: ./attractions_templates/sampleview.pt:239
+#: ./attractions_templates/sampleview.pt:166
 msgid "No related item yet."
 msgstr "尚无相关项目"
 
 #: ./city.py:25
-#: ./specialview_templates/homepageview.pt:459
+#: ./specialview_templates/homepageview.pt:461
 msgid "Northern"
 msgstr "北部"
 
 #: ./city.py:29
-#: ./specialview_templates/homepageview.pt:463
+#: ./specialview_templates/homepageview.pt:465
 msgid "OutlyingIslands"
 msgstr "离岛地区"
 
@@ -246,7 +235,7 @@ msgstr "澎湖县"
 msgid "Period"
 msgstr "活动期间"
 
-#: ./specialview_templates/eventview.pt:48
+#: ./specialview_templates/eventview.pt:47
 msgid "Period:"
 msgstr "活动期间:"
 
@@ -254,18 +243,18 @@ msgstr "活动期间:"
 msgid "Pingtung County"
 msgstr "屏东县"
 
-#: ./browser/template/attractionssearch.pt:62
-#: ./browser/template/getcontentlist.pt:36
-#: ./specialview_templates/attractionsview.pt:90
+#: ./browser/template/attractionssearch.pt:63
+#: ./browser/template/getcontentlist.pt:37
+#: ./browser/template/nearbysearch.pt:63
 msgid "Previous Page"
 msgstr "前一页"
 
-#: ./attractions_templates/sampleview.pt:48
+#: ./attractions_templates/sampleview.pt:49
 msgid "Profile"
 msgstr "相关资讯"
 
-#: ./specialview_templates/homepageview.pt:398
-#: ./specialview_templates/newsview.pt:47
+#: ./specialview_templates/homepageview.pt:400
+#: ./specialview_templates/newsview.pt:46
 msgid "Publish Date:"
 msgstr "发布日期"
 
@@ -273,25 +262,26 @@ msgstr "发布日期"
 msgid "Region"
 msgstr "区域"
 
-#: ./tourevent_templates/sampleview.pt:59
-#: ./tournews_templates/sampleview.pt:48
+#: ./tourevent_templates/sampleview.pt:61
+#: ./tournews_templates/sampleview.pt:47
 msgid "Related Attractions"
 msgstr "相关景点"
 
-#: ./attractions_templates/sampleview.pt:258
+#: ./attractions_templates/sampleview.pt:186
 msgid "Related Event"
-msgstr ""
+msgstr "相關活動"
 
-#: ./attractions_templates/sampleview.pt:271
+#: ./attractions_templates/sampleview.pt:199
 msgid "Related News"
-msgstr ""
+msgstr "相关新闻"
 
-#: ./tourevent.py:64
-#: ./tournews.py:44
+#: ./tourevent.py:66
+#: ./tournews.py:45
 msgid "Related attractions"
 msgstr "相关景点"
 
 #: ./browser/template/attractionssearch.pt:30
+#: ./browser/template/nearbysearch.pt:30
 msgid "Search result total:"
 msgstr "搜寻结果笔数:"
 
@@ -367,8 +357,16 @@ msgstr "较小的图片，显示在第四张投影片中"
 msgid "Sorry, no data yat !"
 msgstr "很抱歉，目前尚无资料可以显示。"
 
+#: ./attractions_templates/sampleview.pt:65
+msgid "Source of Article:"
+msgstr "文章来源"
+
+#: ./attractions.py:114
+msgid "Sources of articles"
+msgstr "文章来源"
+
 #: ./city.py:27
-#: ./specialview_templates/homepageview.pt:461
+#: ./specialview_templates/homepageview.pt:463
 msgid "Southern"
 msgstr "南部"
 
@@ -429,7 +427,7 @@ msgid "TourNews"
 msgstr "旅游新闻"
 
 #: ./attractions.py:97
-#: ./attractions_templates/sampleview.pt:96
+#: ./attractions_templates/sampleview.pt:103
 msgid "Transportation"
 msgstr "交通资讯"
 
@@ -441,9 +439,9 @@ msgstr "近期活动"
 msgid "Upcoming Event"
 msgstr "活动讯息"
 
-#: ./attractions_templates/sampleview.pt:86
+#: ./attractions_templates/sampleview.pt:93
 msgid "Web Address"
-msgstr ""
+msgstr "官网网址"
 
 #: ./city.py:49
 msgid "Yilan County"
@@ -461,34 +459,26 @@ msgstr "联络资讯"
 msgid "content body"
 msgstr "特殊页面内容"
 
-#: ./attractions.py:132
-msgid "copyright mark"
-msgstr "版权注记"
-
 #. Default: "The ${plonecms} ${copyright} 2013-${current_year}"
 #: ./jbot_templates/plone.app.layout.viewlets.footer.pt:11
 msgid "description_copyright"
 msgstr ""
 
-#: ./attractions.py:102
-msgid "head Image"
-msgstr "首图"
-
-#: ./attractions_templates/sampleview.pt:246
+#: ./attractions_templates/sampleview.pt:173
 msgid "more nearby attractions"
-msgstr ""
+msgstr "更多附近景点"
 
-#: ./attractions_templates/sampleview.pt:247
+#: ./attractions_templates/sampleview.pt:175
 msgid "or"
-msgstr ""
+msgstr "或"
 
-#: ./attractions_templates/sampleview.pt:50
+#: ./attractions_templates/sampleview.pt:51
 msgid "related Items"
 msgstr "相关讯息"
 
-#: ./attractions_templates/sampleview.pt:248
+#: ./attractions_templates/sampleview.pt:176
 msgid "select city"
-msgstr ""
+msgstr "选择城市"
 
 #. Default: "Home"
 #: ./jbot_templates/plone.app.layout.viewlets.path_bar.pt:11
@@ -499,6 +489,14 @@ msgstr "首页"
 #: ./jbot_templates/plone.app.layout.viewlets.footer.pt:10
 msgid "title_copyright"
 msgstr ""
+
+#: ./attractions.py:109
+msgid "using in gallery"
+msgstr "在相簿中使用"
+
+#: ./attractions.py:103
+msgid "using in homepage and content, width:height=3:2"
+msgstr "使用在首页及内页，W*H=3:2"
 
 #: ./attractions.py:74
 msgid "website url"

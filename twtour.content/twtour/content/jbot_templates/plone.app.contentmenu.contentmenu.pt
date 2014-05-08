@@ -11,7 +11,7 @@
                                               <a class="accordion-toggle"
                                                  data-toggle="collapse"
                                                  data-parent="#accordion"
-                                                 href="#collapseOne" i18n:translate="">Content Maneger</a>
+                                                 href="#collapseOne" i18n:translate="">Content Manager</a>
                                             </h6>
                                         </div><!-- end panel heading -->
                                         <div id="collapseOne" class="panel-collapse collapse">

@@ -17,6 +17,15 @@ msgstr ""
 "Preferred-Encodings: utf-8\n"
 "Domain: plone\n"
 
+
+############## 新增Begin
+
+msgid "Content Manager"
+msgstr "內容管理"
+
+############## 新增End
+
+
 #: plone.locking/plone/locking/browser/locking.py:140
 msgid "$d day and $h hours"
 msgstr "$d 天又 $h 小时"
