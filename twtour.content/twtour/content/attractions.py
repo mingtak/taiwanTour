@@ -21,6 +21,7 @@ from zope.lifecycleevent.interfaces import IObjectAddedEvent
 from twtour.content import MessageFactory as _
 from plone.formwidget.autocomplete import AutocompleteMultiFieldWidget, AutocompleteFieldWidget
 from twtour.content.city import ICity
+from plone.app.contenttypes.interfaces import IImage
 
 # import for back_references
 from Acquisition import aq_inner
@@ -33,6 +34,7 @@ from collective import dexteritytextindexer
 from plone.indexer import indexer
 from random import choice
 import logging
+
 
 logger = logging.getLogger("attractions.py")
 
@@ -98,11 +100,31 @@ class IAttractions(form.Schema, IImageScaleTraversable):
         required=False,
     )
 
+    form.widget(leadImageForAttractions=AutocompleteFieldWidget)
+    leadImageForAttractions = RelationChoice(
+        title=_(u"lead Image"),
+        source=ObjPathSourceBinder(
+                object_provides=IImage.__identifier__,),
+        required=True,
+    )
+
     leadImageLink = schema.TextLine(
         title=_(u'Lead Image Link'),
         description=_(u'using in homepage and content, width:height=3:2'),
         required=True,
     )
+
+    form.widget(imageListForAttractions=AutocompleteMultiFieldWidget)
+    imageListForAttractions = RelationList(
+        title=_(u"Gallery image list"),
+        value_type=RelationChoice(
+            source=ObjPathSourceBinder(
+                object_provides=IImage.__identifier__,
+            ),
+        ),
+        required=True,
+    )
+
 
     imageLinkList = schema.Text(
         title=_(u'Image Link List'),

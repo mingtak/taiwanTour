@@ -53,11 +53,8 @@
                               <div id="myTabContent" class="tab-content">
                                 <div class="tab-pane fade in active" id="description-tab">
                                   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                    <tal:checkIndexLen condition="python:len(context.leadImageLink.split(',,,')) == 2">
-                                      <img tal:attributes="src python:context.leadImageLink.split(',,,')[1]"
-                                           width="100%"/>
-                                      <p class="imageDescription" tal:content="python:context.leadImageLink.split(',,,')[0]"></p>
-                                    </tal:checkIndexLen>
+                                      <img tal:replace="structure context/leadImageForAttractions/to_object/@@images/image/lead" />
+                                      <p class="imageDescription" tal:content="context/leadImageForAttractions/to_object/Description"></p>
                                   </div>
                                   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
                                        tal:content="structure context/introduction/raw"></div>
@@ -112,34 +109,41 @@
   <tbody>
 
 
-
-
-<tal:gallery define="imageList python:context.imageLinkList.split('\n')"
-             repeat="image python:imageList">
+<tal:gallery define="imageList context/imageListForAttractions"
+             repeat="image imageList">
   <tal:number define="index repeat/image/index">
     <tr tal:condition="python:True if index % 3 == 0 else False">
-      <td tal:repeat="itemUrl python:imageList[index:(index+3)]">
-        <tal:checkIndexLen condition="python:len(itemUrl.split(',,,')) == 2">
+      <td tal:repeat="imageItem python:context.imageListForAttractions[index:(index+3)]">
                         <div class="portfolio-columns">
                             <div class="media_element ImageWrapper boxes_img imageDescription">
+
+
+<tal:getHref define='item python:imageItem.to_object;
+                     scales item/@@images;
+                     tag python: scales.tag("image", scale="large"); 
+                     imageHref python:tag.split("src=\"")[1].split("\"")[0]'>
+
                                 <a data-placement="bottom"
                                    data-toggle="tooltip"
                                    data-original-title="View item"
                                    title=""
                                    rel="prettyPhoto"
-                                   tal:attributes="href python:itemUrl.split(',,,')[1]">
-                                  <img tal:attributes="src python:itemUrl.split(',,,')[1]" alt=""
-                                       width="200px" class="center-block">
+                                   tal:attributes="href imageHref">
+                                      <img tal:replace="structure imageItem/to_object/@@images/image/lead" />
                                 </a>
-                                <p tal:content="python:itemUrl.split(',,,')[0]">description</p>
+</tal:getHref>
+                                      <p class="imageDescription" tal:content="imageItem/to_object/Description"></p>
                             </div><!-- media_element -->
                         </div><!-- item -->
-        </tal:checkIndexLen>
       </td>
     </tr>
   </tal:number>
 
 </tal:gallery>
+
+
+
+
 
 
 
